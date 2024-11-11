@@ -34,21 +34,6 @@
                             <a href="{{url('admin/main-category/add')}}" class="btn btn-sm btn-primary">
                                 اضف قسم جديد <i class="ti ti-plus"></i>
                             </a>
-
-{{--                            <div class="dropdown">--}}
-{{--                                <a href="#" class="dropdown-toggle btn btn-sm btn-outline-light"--}}
-{{--                                   data-bs-toggle="dropdown" aria-expanded="false">--}}
-{{--                                    This Month--}}
-{{--                                </a>--}}
-{{--                                <div class="dropdown-menu dropdown-menu-end">--}}
-{{--                                    <!-- item-->--}}
-{{--                                    <a href="#!" class="dropdown-item">Download</a>--}}
-{{--                                    <!-- item-->--}}
-{{--                                    <a href="#!" class="dropdown-item">Export</a>--}}
-{{--                                    <!-- item-->--}}
-{{--                                    <a href="#!" class="dropdown-item">Import</a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
                         </div>
 
 
@@ -64,7 +49,6 @@
                                             </div>
                                         </th>
                                         <th> اسم القسم</th>
-                                        <th> عدد الاقسام الفرعية</th>
                                         <th> الحالة</th>
                                         <th> رئيسية  </th>
                                         <th> الصورة</th>
@@ -86,7 +70,7 @@
 {{--                                                </div>--}}
                                             </td>
                                             <td> {{$category['name']}} </td>
-                                            <td>Admin</td>
+
                                             <td>
                                                 @if($category['status'] == 1)
                                                     <span class="badge bg-success"> مفعل  </span>
@@ -106,14 +90,14 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="{{url('admin/sub-categories/'.$category['id'])}}" class="btn btn-soft-primary btn-sm">
+                                                    <a href="{{url('admin/sub-categories/'.$category['id'])}}" class="btn btn-primary btn-sm">
                                                           الاقسام الفرعية
                                                     </a>
-                                                    <a href="{{url('admin/main-category/update/'.$category['id'])}}" class="btn btn-soft-primary btn-sm">
+                                                    <a href="{{url('admin/main-category/update/'.$category['id'])}}" class="btn btn-info btn-sm">
                                                         <iconify-icon icon="solar:pen-2-broken"
                                                                       class="align-middle fs-18"></iconify-icon>
                                                     </a>
-                                                    <button type="button" class="btn btn-soft-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete_category_{{$category['id']}}">
+                                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete_category_{{$category['id']}}">
                                                         <iconify-icon icon="solar:trash-bin-minimalistic-2-broken"
                                                                       class="align-middle fs-18"></iconify-icon>
                                                     </button>

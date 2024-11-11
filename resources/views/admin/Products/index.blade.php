@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('title')
-    المنتجات
+    الخدمات
 @endsection
 @section('css')
 
@@ -52,7 +52,7 @@
                                         <th> القسم الرئيسي   </th>
                                         <th> سعر الشراء  </th>
                                         <th> سعر البيع  </th>
-                                        <th> سعر التخفيض   </th>
+{{--                                        <th> سعر التخفيض   </th>--}}
                                         <th>  الصورة </th>
                                         <th>  العمليات</th>
                                     </tr>
@@ -68,19 +68,19 @@
                                             </td>
                                             <td><a href="{{url('admin/product/update/'.$product['slug'])}}"></a>  {{$product['name']}} </td>
                                             <td> {{$product['Main_Category']['name']}} </td>
+                                            <td> {{$product['purchase_price']}} </td>
                                             <td> {{$product['price']}} </td>
-                                            <td> {{$product['price']}} </td>
-                                            <td> {{$product['price']}} </td>
+{{--                                            <td> {{$product['price']}} </td>--}}
                                             <td>
                                                 <img class="img-thumbnail" src="{{asset('assets/uploads/product_images/'.$product['image'])}}" width="80" height="80px" alt="">
                                             </td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="{{url('admin/product/update/'.$product['slug'])}}" class="btn btn-soft-primary btn-sm">
+                                                    <a href="{{url('admin/product/update/'.$product['slug'])}}" class="btn btn-success btn-sm">
                                                         <iconify-icon icon="solar:pen-2-broken"
                                                                       class="align-middle fs-18"></iconify-icon>
                                                     </a>
-                                                    <button type="button" class="btn btn-soft-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete_category_{{$product['id']}}">
+                                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete_category_{{$product['id']}}">
                                                         <iconify-icon icon="solar:trash-bin-minimalistic-2-broken"
                                                                       class="align-middle fs-18"></iconify-icon>
                                                     </button>

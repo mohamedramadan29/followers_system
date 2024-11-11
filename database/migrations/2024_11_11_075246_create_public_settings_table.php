@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('public_settings', function (Blueprint $table) {
             $table->id();
+            $table->string('website_name')->default(' متجر المتابعين  ');
+            $table->string('website_logo')->nullable();
+            $table->string('website_short_desc')->nullable();
+            $table->string('website_description')->nullable();
+            $table->string('website_keywords')->nullable();
             $table->timestamps();
         });
     }

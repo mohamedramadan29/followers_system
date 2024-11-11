@@ -24689,17 +24689,18 @@ table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, ta
 /***************************** End New Style  ***********************/
 
 .btn-primary{
-    background-color:#C30000;
-    border-color:#C30000;
+
+    background-color: #015E8F;
+    border-color: #015E8F;
 }
 .btn-primary:hover{
-    background-color:#C30000;
-    border-color:#C30000;
+    background-color:#015E8F;
+    border-color:#015E8F;
 }
 
 .btn-danger{
-    background-color:#ff2b2b;
-    border-color:#ff2b2b;
+    background-color:#bf1c17;
+    border-color:#bf1c17;
 }
 .bg-danger{
     background-color:#C30000 !important;

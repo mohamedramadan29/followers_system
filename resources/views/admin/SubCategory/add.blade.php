@@ -63,7 +63,7 @@
                                         <select required name="status" class="form-control" id="crater" data-choices
                                                 data-choices-groups data-placeholder="Select Crater">
                                             <option value=""> -- حدد الحالة --</option>
-                                            <option value="1">مفعل</option>
+                                            <option selected value="1">مفعل</option>
                                             <option value="0">غير مفعل</option>
                                         </select>
 

@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    // علاقة مع الفئة الرئيسية
+    public function Main_Category()
+    {
+        return $this->belongsTo(MainCategory::class, 'category_id');
+    }
+
+    // علاقة مع الفئة الفرعية
+    public function Sub_Category()
+    {
+        return $this->belongsTo(SubCategory::class, 'sub_category_id');
+    }
+
 }

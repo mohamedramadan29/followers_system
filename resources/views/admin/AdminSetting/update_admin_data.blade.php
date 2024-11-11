@@ -47,7 +47,7 @@
                                         <div class="mb-3">
                                             <label for="name" class="form-label"> نوع المستخدم   </label>
                                             <input disabled readonly type="text" id="name" class="form-control" name="name"
-                                                   value="{{$admin_data['type']}}">
+                                                   value="{{$admin_data['account_type']}}">
                                         </div>
 
                                     </div>

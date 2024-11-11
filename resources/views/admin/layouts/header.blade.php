@@ -30,9 +30,9 @@
     <!-- Theme Config js (Require in all Page) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="{{asset('assets/admin/js/config.js')}}"></script>
-    @toastifyCss
-    @yield('css')
 
+    @yield('css')
+    @toastifyCss
 </head>
 <body>
 <!-- START Wrapper -->

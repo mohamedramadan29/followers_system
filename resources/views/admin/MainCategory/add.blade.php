@@ -51,18 +51,18 @@
                                         <select required name="status" class="form-control" id="crater" data-choices
                                                 data-choices-groups data-placeholder="Select Crater">
                                             <option value=""> -- حدد الحالة --</option>
-                                            <option value="1">مفعل</option>
+                                            <option selected value="1">مفعل</option>
                                             <option value="0">غير مفعل</option>
                                         </select>
                                     </div>
 
                                     <div class="col-lg-6">
-                                        <label for="crater" class="form-label">  قسم في الصفحة الرئيسية  </label>
+                                        <label for="crater" class="form-label"> قسم في الصفحة الرئيسية </label>
                                         <select required name="main_page" class="form-control" id="crater" data-choices
                                                 data-choices-groups data-placeholder="Select Crater">
-                                            <option value=""> -- حدد   --</option>
-                                            <option value="1">نعم</option>
-                                            <option value="0">لا</option>
+                                            <option value=""> -- حدد --</option>
+                                            <option  value="1">نعم</option>
+                                            <option selected value="0">لا</option>
                                         </select>
 
                                     </div>
@@ -84,25 +84,12 @@
                                 <div class="mb-3">
                                     <input required type="file" class="form-control" name="image" accept="image/*">
                                 </div>
-                                <!-- File Upload -->
-                                {{--                            <form action="https://techzaa.getappui.com/" method="post" class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">--}}
-                                {{--                                <div class="fallback">--}}
-                                {{--                                    <input name="file" type="file" multiple />--}}
-                                {{--                                </div>--}}
-                                {{--                                <div class="dz-message needsclick">--}}
-                                {{--                                    <i class="bx bx-cloud-upload fs-48 text-primary"></i>--}}
-                                {{--                                    <h3 class="mt-4">Drop your images here, or <span class="text-primary">click to browse</span></h3>--}}
-                                {{--                                    <span class="text-muted fs-13">--}}
-                                {{--                                                       1600 x 1200 (4:3) recommended. PNG, JPG and GIF files are allowed--}}
-                                {{--                                                  </span>--}}
-                                {{--                                </div>--}}
-                                {{--                            </form>--}}
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title"> معلومات السيو <span
-                                            class="badge badge-info bg-info"> اختياري  </span></h4>
+                                        class="badge badge-info bg-info"> اختياري  </span></h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -140,7 +127,8 @@
                                     <a href="{{url('admin/main-categories')}}" class="btn btn-primary w-100"> رجوع </a>
                                 </div>
                                 <div class="col-lg-2">
-                                    <button type="submit" class="btn btn-outline-secondary w-100">  حفظ <i class='bx bxs-save'></i> </button>
+                                    <button type="submit" class="btn btn-outline-secondary w-100"> حفظ <i
+                                            class='bx bxs-save'></i></button>
                                 </div>
                             </div>
                         </div>
@@ -154,8 +142,8 @@
         <!-- ==================================================== -->
         <!-- End Page Content -->
         <!-- ==================================================== -->
-        @endsection
+@endsection
 
-        @section('js')
+@section('js')
 
 @endsection

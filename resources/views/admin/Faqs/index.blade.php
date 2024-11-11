@@ -29,7 +29,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center gap-1">
-                            <h4 class="card-title flex-grow-1"> السمات الخاصة بالمنتجات </h4>
+                            <h4 class="card-title flex-grow-1">  الاسئلة الشائعة </h4>
                             <a href="{{url('admin/faq/add')}}" class="btn btn-sm btn-primary">
                                 اضافة سؤال جديد
                                 <i class="ti ti-plus"></i>

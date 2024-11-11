@@ -5,8 +5,17 @@
             <div class="row h-100">
 
                 <div class="col-xxl-7">
-                    @if(\Illuminate\Support\Facades\Session::has('Error_Message'))
-                        <div class="alert alert-danger"> {{\Illuminate\Support\Facades\Session::get('Error_Message')}} </div>
+                    @if (Session::has('Success_message'))
+                        @php
+                            toastify()->success(\Illuminate\Support\Facades\Session::get('Success_message'));
+                        @endphp
+                    @endif
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $error)
+                            @php
+                                toastify()->error($error);
+                            @endphp
+                        @endforeach
                     @endif
                     <div class="row justify-content-center h-100">
                         <div class="col-lg-6 py-lg-5">
@@ -68,7 +77,7 @@
                 <div class="col-xxl-5 d-none d-xxl-flex">
                     <div class="card h-100 mb-0 overflow-hidden" style="background: transparent;box-shadow: none">
                         <div class="d-flex flex-column h-100">
-                            <img src="{{asset('assets/admin/images/car_image.svg')}}" alt="" class="w-100 h-100">
+                            <img src="{{asset('assets/admin/images/social_login.svg')}}" alt="" class="w-100 h-100">
                         </div>
                     </div>
                 </div>
