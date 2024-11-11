@@ -101,22 +101,17 @@
                                    <span class="nav-icon">
                                          <i class="bi bi-car-front-fill"></i>
                                    </span>
-                    <span class="nav-text">  الاعلانات  </span>
+                    <span class="nav-text">  المدونة   </span>
                 </a>
                 <div class="collapse" id="sidebaradvs">
                     <ul class="nav sub-navbar-nav">
                         <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{url('admin/advertisements')}}"> جميع الاعلانات   </a>
+                            <a class="sub-nav-link" href="{{url('admin/blog_category')}}">  اقسام المدونة  </a>
                         </li>
                         <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{url('admin/advertisements/active')}}">  اعلانات فعالة  </a>
+                            <a class="sub-nav-link" href="{{url('admin/blogs')}}">  التدوينات  </a>
                         </li>
-                        <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{url('admin/advertisements/under_review')}}">   اعلانات تحت المراجعه  </a>
-                        </li>
-                        <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{url('admin/adv/add')}}"> اضف اعلان  </a>
-                        </li>
+
                     </ul>
                 </div>
             </li>

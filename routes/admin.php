@@ -7,7 +7,8 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\PublicSettingController;
 use App\Http\Controllers\admin\SubCategoryController;
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\admin\BlogCategoryController;
+use \App\Http\Controllers\admin\BlogController;
 Route::group(['prefix' => 'admin'], function () {
 // Admin Login
 
@@ -69,6 +70,22 @@ Route::group(['prefix' => 'admin'], function () {
             Route::match(['post', 'get'], 'faq/add', 'store');
             Route::match(['post', 'get'], 'faq/update/{id}', 'update');
             Route::post('faq/delete/{id}', 'delete');
+        });
+        ///////////////////  Start Blog Category //////////////////
+        ///
+        Route::controller(BlogCategoryController::class)->group(function (){
+            Route::get('blog_category', 'index');
+            Route::match(['post', 'get'], 'blog_category/add', 'store');
+            Route::match(['post', 'get'], 'blog_category/update/{id}', 'update');
+            Route::post('blog_category/delete/{id}', 'delete');
+        });
+        ///////////////////  Start Blog //////////////////
+        ///
+        Route::controller(BlogController::class)->group(function (){
+            Route::get('blogs', 'index');
+            Route::match(['post', 'get'], 'blog/add', 'store');
+            Route::match(['post', 'get'], 'blog/update/{id}', 'update');
+            Route::post('blog/delete/{id}', 'delete');
         });
     });
 
