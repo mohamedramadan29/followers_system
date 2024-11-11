@@ -27,24 +27,54 @@
                     <div class="col-xl-12 col-lg-8 ">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> معلومات الخدمة  </h4>
+                                <h4 class="card-title"> معلومات الخدمة </h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="name" class="form-label"> اسم الخدمة  </label>
+                                            <label for="name" class="form-label"> اسم الخدمة </label>
                                             <input required type="text" id="name" name="name" class="form-control"
                                                    placeholder="" value="{{old('name')}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="name" class="form-label"> اضف اسم خاص للرابط  ( اختياري )  </label>
+                                            <label for="name" class="form-label"> اضف اسم خاص للرابط ( اختياري
+                                                ) </label>
                                             <input required type="text" id="slug" name="slug" class="form-control"
                                                    placeholder="" value="{{old('slug')}}">
                                         </div>
                                     </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="category_id" class="form-label"> حدد مزود الخدمة </label>
+                                            <select required class="form-control" id="category_id" data-choices
+                                                    data-choices-groups data-placeholder="Select Categories"
+                                                    name="category_id">
+                                                <option value=""> -- حدد --</option>
+                                                <option value="1"> دعم فولو</option>
+                                                <option value="2"> دكتور دعم</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="category_id" class="form-label"> حدد القسم الرئيسي </label>
+                                            <select required class="form-control" id="category_id" data-choices
+                                                    data-choices-groups data-placeholder="Select Categories"
+                                                    name="category_id">
+                                                <option value=""> -- حدد القسم --</option>
+                                                @foreach($MainCategories as $maincat)
+                                                    <option value="{{$maincat['id']}}">{{$maincat['name']}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+
                                     <div class="col-lg-6">
                                         <div class="mb-3">
                                             <label for="category_id" class="form-label"> حدد القسم الرئيسي </label>
@@ -114,7 +144,7 @@
                                     <div class="col-lg-12">
                                         <div class="mb-3">
                                             <label for="short_description" class="form-label"> وصف مختصر عن
-                                                للخدمة  </label>
+                                                للخدمة </label>
                                             <textarea class="form-control bg-light-subtle" id="short_description"
                                                       rows="5"
                                                       placeholder=""
@@ -141,7 +171,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="mb-3">
-                                            <label for="image" class="form-label"> صورة الخدمة  </label>
+                                            <label for="image" class="form-label"> صورة الخدمة </label>
                                             <input required type="file" id="image" name="image" class="form-control"
                                                    accept="image/*">
                                         </div>
@@ -173,14 +203,14 @@
                                                    placeholder="000">
                                         </div>
                                     </div>
-{{--                                    <div class="col-lg-6">--}}
-{{--                                        <label for="product-discount" class="form-label"> السعر بعدالخصم </label>--}}
-{{--                                        <div class="input-group mb-3">--}}
-{{--                                            <span class="input-group-text fs-20"><i class='bx bxs-discount'></i></span>--}}
-{{--                                            <input type="number" id="discount" name="discount" class="form-control"--}}
-{{--                                                   placeholder="000">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    {{--                                    <div class="col-lg-6">--}}
+                                    {{--                                        <label for="product-discount" class="form-label"> السعر بعدالخصم </label>--}}
+                                    {{--                                        <div class="input-group mb-3">--}}
+                                    {{--                                            <span class="input-group-text fs-20"><i class='bx bxs-discount'></i></span>--}}
+                                    {{--                                            <input type="number" id="discount" name="discount" class="form-control"--}}
+                                    {{--                                                   placeholder="000">--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
                                 </div>
                             </div>
                         </div>

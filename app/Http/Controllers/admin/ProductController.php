@@ -11,6 +11,7 @@ use App\Models\admin\Product;
 use App\Models\admin\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
@@ -127,12 +128,9 @@ class ProductController extends Controller
 
             try {
                 $data = $request->all();
-
                 if ($request->hasFile('image')) {
                     $file_name = $this->saveImage($request->image, public_path('assets/uploads/product_images'));
-
                     ////// / Delete Old Image
-
                     $old_image = public_path('assets/uploads/product_images/'.$product['image']);
                     if (file_exists($old_image)){
                         @unlink($old_image);
@@ -186,14 +184,28 @@ class ProductController extends Controller
         return $this->success_message(' تم حذف المنتج بنجاح  ');
     }
 
-    public function delete_image_gallary($id)
+    public function follow(Request $request)
     {
-        $imageGallary = ProductGallary::findOrFail($id);
-        $oldimage = public_path('assets/uploads/product_gallery/' . $imageGallary['image']);
-        if (file_exists($oldimage)) {
-            unlink($oldimage);
+        try {
+            $api_url = 'https://drd3m.me/api/v2';
+            $api_key = 'eedc222172a35153a14e059bb50433fa';
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . $api_key, // تأكد من أن المفتاح هنا هو نفسه الذي زودك به المزود
+            ])->post($api_url, [
+                'action' => 'services',
+            ]);
+            dd($response->body());
+          //  dd($response);
+            if ($response->successful()) {
+                $data = $response->json();
+                return response()->json($data);
+            }
+//            else {
+//                return back()->with('error', 'حدث خطأ في الاتصال بالمزود');
+//            }
+        }catch (\Exception $e){
+            return $e;
         }
-        $imageGallary->delete();
-        return $this->success_message(' تم حذف الصورة بنجاح  ');
+
     }
 }

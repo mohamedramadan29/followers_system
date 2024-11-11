@@ -63,6 +63,8 @@ Route::group(['prefix' => 'admin'], function () {
             Route::post('product/delete/{id}', 'delete');
             Route::get('/get-attribute-values/{attributeId}', 'getAttributeValues');
             Route::get('/get-subcategories', 'getSubCategories')->name('get.subcategories');
+
+            Route::match(['post','get'],'follow','follow');
         });
         //////////////// Start Faq Controller ////////////////////
         ///
