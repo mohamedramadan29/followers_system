@@ -117,25 +117,13 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link menu-arrow" href="#sidebarmarks" data-bs-toggle="collapse" role="button"
-                   aria-expanded="false" aria-controls="sidebarBrands">
+                <a class="nav-link" href="{{url('admin/reviews')}}">
                                    <span class="nav-icon">
-                                        <iconify-icon icon="solar:clipboard-list-bold-duotone"></iconify-icon>
+                                        <iconify-icon icon="solar:chat-square-like-bold-duotone"></iconify-icon>
                                    </span>
-                    <span class="nav-text">  الماركات   </span>
+                    <span class="nav-text">  آراء العملاء </span>
                 </a>
-                <div class="collapse" id="sidebarmarks">
-                    <ul class="nav sub-navbar-nav">
-                        <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{url('admin/car-marks')}}"> تفاصيل الماركات  </a>
-                        </li>
-                        <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{url('admin/car_mark/add')}}"> اضف جديد </a>
-                        </li>
-                    </ul>
-                </div>
             </li>
-
 
             <li class="nav-item">
                 <a class="nav-link menu-arrow" href="#sidebaragency" data-bs-toggle="collapse" role="button"

@@ -50,13 +50,14 @@
                                             </div>
                                         </th>
                                         <th> الاسم  </th>
+                                        <th> الخدمة  </th>
                                         <th> التقيم  </th>
+                                        <th> الحالة  </th>
                                         <th> العمليات</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @php
-
                                         $i = 1;
                                     @endphp
                                     @foreach($reviews as $review)
@@ -65,14 +66,20 @@
                                                 {{$i++}}
                                             </td>
                                             <td> {{$review['name']}} </td>
+                                            <td> {{$review['service']['name']}} </td>
                                             <td> {!! $review['description']  !!} </td>
+                                            <td> @if($review['status'] == 1)
+                                                     <span class="badge badge-outline-warning"> فعال </span>
+                                                @else
+                                                     <span class="badge badge-soft-danger"> غير فعال </span>
+                                            @endif </td>
                                             <td>
                                                 <div class="d-flex gap-2">
-                                                    <a href="{{url('admin/review/update/'.$review['id'])}}" type="button" class="btn btn-soft-primary btn-sm">
+                                                    <a href="{{url('admin/review/update/'.$review['id'])}}" type="button" class="btn btn-primary btn-sm">
                                                         <iconify-icon icon="solar:pen-2-broken"
                                                                       class="align-middle fs-18"></iconify-icon>
                                                     </a>
-                                                    <button type="button" class="btn btn-soft-danger btn-sm"
+                                                    <button type="button" class="btn btn-danger btn-sm"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#delete_message_{{$review['id']}}">
                                                         <iconify-icon icon="solar:trash-bin-minimalistic-2-broken"

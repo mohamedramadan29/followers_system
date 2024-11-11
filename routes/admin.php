@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\FaqController;
 use App\Http\Controllers\admin\MainCategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\PublicSettingController;
+use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\admin\BlogCategoryController;
@@ -86,6 +87,14 @@ Route::group(['prefix' => 'admin'], function () {
             Route::match(['post', 'get'], 'blog/add', 'store');
             Route::match(['post', 'get'], 'blog/update/{id}', 'update');
             Route::post('blog/delete/{id}', 'delete');
+        });
+        //////////////// Start Reviews //////////////////////
+        ///
+        Route::controller(ReviewController::class)->group(function (){
+            Route::get('reviews','index');
+            Route::match(['post','get'],'review/store','store');
+            Route::match(['post','get'],'review/update/{id}','update');
+            Route::post('review/delete/{id}','delete');
         });
     });
 

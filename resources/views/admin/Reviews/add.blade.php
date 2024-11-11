@@ -35,6 +35,22 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="mb-3">
+                                            <label for="service" class="form-label"> الخدمة   <span class="star"
+                                                                                                style="color: red"> * </span>
+                                            </label>
+                                            <select required class="form-control" id="service_id" data-choices
+                                                    data-choices-groups data-placeholder="Select Categories"
+                                                    name="service_id">
+                                                <option value=""> -- حدد الخدمة  --</option>
+                                                @foreach($products as $product)
+                                                    <option value="{{$product['id']}}">{{$product['name']}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
                                             <label for="name" class="form-label"> العميل  <span class="star"
                                                                                                style="color: red"> * </span>
                                             </label>
@@ -58,6 +74,21 @@
                                         <input type="hidden" name="content" id="content">
                                         <!-- Quill Editors -->
                                         <div id="snow-editor" style="height: 300px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="mb-3">
+                                            <label for="service" class="form-label"> حالة التقيم    <span class="star"
+                                                                                                    style="color: red"> * </span>
+                                            </label>
+                                            <select required class="form-control" id="status" data-choices
+                                                    data-choices-groups data-placeholder="Select Categories"
+                                                    name="status">
+                                                <option value=""> -- حدد    --</option>
+                                                <option selected value="1"> فعال </option>
+                                                <option value="0"> غير فعال  </option>
+
+                                            </select>
                                         </div>
                                     </div>
 
