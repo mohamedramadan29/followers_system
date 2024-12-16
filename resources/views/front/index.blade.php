@@ -8,11 +8,11 @@
                 <div class="col-lg-6">
                     <div class="hero-inner position-relative pe-lg-5">
                         <div>
-                            <h1 class="hero-inner__title"> أهلاً بك في متجر المتابعين
+                            <h1 class="hero-inner__title"> أهلاً بك في متجر نايف
                             </h1>
                             <p class="hero-inner__desc font-18"> نقدم لك أسهل وأبسط وأسرع خدمة لزيادة المتابعين والتفاعل على
                                 مواقع التواصل الاجتماعي في الوطن العربي. تيك توك، انستقرام، فيسبوك، تويتر، يوتيوب، سنابشات
-                                متجر المتابعين هو أفضل وأرخص موقع لزيادة المتابعين</p>
+                                متجر نايف هو أفضل وأرخص موقع لزيادة المتابعين</p>
                             <div class="position-relative">
                                 <div class="search-box">
                                     <input type="text"
@@ -461,72 +461,69 @@
 
 
     <!-- ======================== popular Section Start =========================== -->
-    <section class="popular padding-y-120 overflow-hidden">
+    <section class="popular padding-y-120 overflow-hidden category_section">
         <div class="container container-two">
             <div class="section-heading style-right mb-64">
                 <h5 class="section-heading__title"> اقسام الخدمات </h5>
             </div>
             <div class="popular-slider arrow-style-two row gy-4">
                 <div class="col-lg-2">
-                    <a href="all-product.html" class="popular-item w-100">
+                    <a href="#" class="popular-item w-100">
                         <span class="popular-item__icon">
-                            <img src="{{ asset('assets/front/') }}/images/icons/popular-icon1.svg" alt="">
+                            <i class=""></i>
+                            <img src="{{ asset('assets/front/') }}/images/serv.webp" alt="">
                         </span>
-                        <h6 class="popular-item__title font-18">WordPress</h6>
+                        <h6 class="popular-item__title font-18">فيسبوك </h6>
                         <span class="popular-item__qty text-body">15,296</span>
                     </a>
                 </div>
                 <div class="col-lg-2">
-                    <a href="all-product.html" class="popular-item w-100">
+                    <a href="#" class="popular-item w-100">
                         <span class="popular-item__icon">
-                            <img src="{{ asset('assets/front/') }}/images/icons/popular-icon2.svg" alt="">
+                            <i class=""></i>
+                            <img src="{{ asset('assets/front/') }}/images/serv.webp" alt="">
                         </span>
-                        <h6 class="popular-item__title font-18">Plugin</h6>
+                        <h6 class="popular-item__title font-18">فيسبوك </h6>
                         <span class="popular-item__qty text-body">15,296</span>
                     </a>
                 </div>
                 <div class="col-lg-2">
-                    <a href="all-product.html" class="popular-item w-100">
+                    <a href="#" class="popular-item w-100">
                         <span class="popular-item__icon">
-                            <img src="{{ asset('assets/front/') }}/images/icons/popular-icon3.svg" alt="">
+                            <i class=""></i>
+                            <img src="{{ asset('assets/front/') }}/images/serv.webp" alt="">
                         </span>
-                        <h6 class="popular-item__title font-18">HTML</h6>
+                        <h6 class="popular-item__title font-18">فيسبوك </h6>
                         <span class="popular-item__qty text-body">15,296</span>
                     </a>
                 </div>
                 <div class="col-lg-2">
-                    <a href="all-product.html" class="popular-item w-100">
+                    <a href="#" class="popular-item w-100">
                         <span class="popular-item__icon">
-                            <img src="{{ asset('assets/front/') }}/images/icons/popular-icon4.svg" alt="">
+                            <i class=""></i>
+                            <img src="{{ asset('assets/front/') }}/images/serv.webp" alt="">
                         </span>
-                        <h6 class="popular-item__title font-18">Java Script</h6>
+                        <h6 class="popular-item__title font-18">فيسبوك </h6>
                         <span class="popular-item__qty text-body">15,296</span>
                     </a>
                 </div>
                 <div class="col-lg-2">
-                    <a href="all-product.html" class="popular-item w-100">
+                    <a href="#" class="popular-item w-100">
                         <span class="popular-item__icon">
-                            <img src="{{ asset('assets/front/') }}/images/icons/popular-icon5.svg" alt="">
+                            <i class=""></i>
+                            <img src="{{ asset('assets/front/') }}/images/serv.webp" alt="">
                         </span>
-                        <h6 class="popular-item__title font-18">Mobile App</h6>
+                        <h6 class="popular-item__title font-18">فيسبوك </h6>
                         <span class="popular-item__qty text-body">15,296</span>
                     </a>
                 </div>
                 <div class="col-lg-2">
-                    <a href="all-product.html" class="popular-item w-100">
+                    <a href="#" class="popular-item w-100">
                         <span class="popular-item__icon">
-                            <img src="{{ asset('assets/front/') }}/images/icons/popular-icon6.svg" alt="">
+                            <i class=""></i>
+                            <img src="{{ asset('assets/front/') }}/images/serv.webp" alt="">
                         </span>
-                        <h6 class="popular-item__title font-18">PHP Script</h6>
-                        <span class="popular-item__qty text-body">15,296</span>
-                    </a>
-                </div>
-                <div class="col-lg-2">
-                    <a href="all-product.html" class="popular-item w-100">
-                        <span class="popular-item__icon">
-                            <img src="{{ asset('assets/front/') }}/images/icons/popular-icon4.svg" alt="">
-                        </span>
-                        <h6 class="popular-item__title font-18">Java Script</h6>
+                        <h6 class="popular-item__title font-18">فيسبوك </h6>
                         <span class="popular-item__qty text-body">15,296</span>
                     </a>
                 </div>
@@ -884,4 +881,59 @@
         </div>
     </section>
     <!-- =========================== Arrival Product Section End ========================== -->
+
+    <!-- ======================== popular Section Start =========================== -->
+    <section class="arrival-product padding-y-120 section-bg position-relative z-index-1 faqs">
+        <div class="container container-two">
+            <div class="section-heading style-right mb-64">
+                <h5 class="section-heading__title"> الأسئلة الشائعة </h5>
+                <p> نرد على الاستفسارات الخاصة بكم في صورة سؤال وجواب. </p>
+            </div>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            أريد أن أقوم بتجربة هذه الخدمات أولاً قبل شرائها ماذا أفعل؟
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            بكل تأكيد . عند التسجيل تحصل على رصيد مجاني ابتدائي . يمكنك تجربة أحد الخدمات الموجودة بهذا الرصيد المبدئي دون شحن أي رصيد
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            هل الخدمات المعروضة على متجر المتابعين آمنة؟
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body"> بكل تأكيد جميع الخدمات الموجودة على المتجر آمنة تماماً ولا تؤثر نهائياً على حسابك بأي شكل </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                            هل الخدمات المعروضة على متجر المتابعين آمنة؟
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body"> بكل تأكيد جميع الخدمات الموجودة على المتجر آمنة تماماً ولا تؤثر نهائياً على حسابك بأي شكل </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ======================== popular Section End =========================== -->
+
+
 @endsection
