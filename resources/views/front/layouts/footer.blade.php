@@ -120,7 +120,9 @@
 
 <!-- main js -->
 <script src="{{ asset('assets/front/') }}/js/main.js"></script>
+@toastifyJs
 
+{!! NoCaptcha::renderJs() !!}
 </body>
 
 </html>

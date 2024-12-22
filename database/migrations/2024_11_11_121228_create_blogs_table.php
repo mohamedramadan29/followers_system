@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->unique();
             $table->foreignId('category_id')->references('id')->on('blog_categories')->cascadeOnDelete();
             $table->text('short_desc')->nullable();
             $table->longText('desc');

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('password');
+            $table->foreignId('role_id')->nullable()->references('id')->on('roles')->nullOnDelete();
             $table->string('account_type');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();

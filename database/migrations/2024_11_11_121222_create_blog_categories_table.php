@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('blog_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->unique();
             $table->string('image');
             $table->tinyInteger('status')->default(1);
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();
             $table->timestamps();
         });
     }

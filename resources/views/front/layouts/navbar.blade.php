@@ -96,76 +96,83 @@
                 <!-- Menu End  -->
                 <!-- Header Right start -->
                 <div class="header-right flx-align">
-                    <div class="header-right__inner gap-3 flx-align d-lg-flex d-none">
-                        <a href="{{ url('register') }}" class="btn btn-main pill">
-                            <span class="icon-left icon">
-                                <img src="{{ asset('assets/front/') }}/images/icons/user.svg" alt="">
-                            </span>سجل الان
-                        </a>
-                    </div>
-                    <div class="user-profile ">
-                        <button class="user-profile__button flex-align">
-                            <span class="user-profile__thumb">
-                                <img src="{{ asset('assets/front/') }}/images/thumbs/user-profile.png" class="cover-img" alt="">
-                            </span>
-                        </button>
-                        <ul class="user-profile-dropdown">
-                            <li class="sidebar-list__item">
-                                <a href="{{ route('profile') }}" class="sidebar-list__link">
-                                    <span class="sidebar-list__icon">
-                                        <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon2.svg" alt="" class="icon">
-                                        <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon-active2.svg" alt=""
-                                            class="icon icon-active">
-                                    </span>
-                                    <span class="text"> حسابي  </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-list__item">
-                                <a href="{{ route('profile') }}" class="sidebar-list__link">
-                                    <span class="sidebar-list__icon">
-                                        <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon10.svg" alt=""
-                                        class="icon">
-                                    <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon-active10.svg" alt=""
-                                        class="icon icon-active">
-                                    </span>
-                                    <span class="text"> تعديل الملف الشخصي  </span>
-                                </a>
-                            </li>
+                    @if (!Auth::check())
+                        <div class="header-right__inner gap-3 flx-align d-lg-flex d-none">
+                            <a href="{{ url('login') }}" class="btn btn-main pill">
+                                <span class="icon-left icon">
+                                    <img src="{{ asset('assets/front/') }}/images/icons/user.svg" alt="">
+                                </span>سجل الان
+                            </a>
+                        </div>
+                    @else
+                        <div class="user-profile ">
+                            <button class="user-profile__button flex-align">
+                                <span class="user-profile__thumb">
+                                    <img src="{{ asset('assets/front/') }}/images/thumbs/user-profile.png"
+                                        class="cover-img" alt="">
+                                </span>
+                            </button>
+                            <ul class="user-profile-dropdown">
+                                <li class="sidebar-list__item">
+                                    <a href="{{ route('profile') }}" class="sidebar-list__link">
+                                        <span class="sidebar-list__icon">
+                                            <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon2.svg"
+                                                alt="" class="icon">
+                                            <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon-active2.svg"
+                                                alt="" class="icon icon-active">
+                                        </span>
+                                        <span class="text"> حسابي </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-list__item">
+                                    <a href="{{ route('profile') }}" class="sidebar-list__link">
+                                        <span class="sidebar-list__icon">
+                                            <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon10.svg"
+                                                alt="" class="icon">
+                                            <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon-active10.svg"
+                                                alt="" class="icon icon-active">
+                                        </span>
+                                        <span class="text"> تعديل الملف الشخصي </span>
+                                    </a>
+                                </li>
 
-                            <li class="sidebar-list__item">
-                                <a href="{{ route('profile') }}" class="sidebar-list__link">
-                                    <span class="sidebar-list__icon">
-                                        <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon2.svg" alt="" class="icon">
-                                        <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon-active2.svg" alt=""
-                                            class="icon icon-active">
-                                    </span>
-                                    <span class="text"> الرصيد  </span>
-                                </a>
-                            </li>
+                                <li class="sidebar-list__item">
+                                    <a href="{{ route('profile') }}" class="sidebar-list__link">
+                                        <span class="sidebar-list__icon">
+                                            <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon2.svg"
+                                                alt="" class="icon">
+                                            <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon-active2.svg"
+                                                alt="" class="icon icon-active">
+                                        </span>
+                                        <span class="text"> الرصيد </span>
+                                    </a>
+                                </li>
 
-                            <li class="sidebar-list__item">
-                                <a href="{{ route('profile') }}" class="sidebar-list__link">
-                                    <span class="sidebar-list__icon">
-                                        <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon2.svg" alt="" class="icon">
-                                        <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon-active2.svg" alt=""
-                                            class="icon icon-active">
-                                    </span>
-                                    <span class="text"> التنبيهات   </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-list__item">
-                                <a href="login.html" class="sidebar-list__link">
-                                    <span class="sidebar-list__icon">
-                                        <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon13.svg" alt=""
-                                            class="icon">
-                                        <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon-active13.svg" alt=""
-                                            class="icon icon-active">
-                                    </span>
-                                    <span class="text">تسجيل خروج</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                                <li class="sidebar-list__item">
+                                    <a href="{{ route('profile') }}" class="sidebar-list__link">
+                                        <span class="sidebar-list__icon">
+                                            <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon2.svg"
+                                                alt="" class="icon">
+                                            <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon-active2.svg"
+                                                alt="" class="icon icon-active">
+                                        </span>
+                                        <span class="text"> التنبيهات </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-list__item">
+                                    <a href="{{ url('logout') }}" class="sidebar-list__link">
+                                        <span class="sidebar-list__icon">
+                                            <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon13.svg"
+                                                alt="" class="icon">
+                                            <img src="{{ asset('assets/front/') }}/images/icons/sidebar-icon-active13.svg"
+                                                alt="" class="icon icon-active">
+                                        </span>
+                                        <span class="text">تسجيل خروج</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    @endif
                     <button type="button" class="toggle-mobileMenu d-lg-none"> <i class="las la-bars"></i> </button>
                 </div>
 

@@ -19,7 +19,7 @@ $publicsetting = \App\Models\admin\PublicSetting::first();
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('assets/front/') }}/css/bootstrap.min.css">
-    
+
     <!-- Fontawesome -->
     <link rel="stylesheet" href="{{ asset('assets/front/') }}/css/fontawesome-all.min.css">
     <!-- Slick -->
@@ -30,7 +30,7 @@ $publicsetting = \App\Models\admin\PublicSetting::first();
     <link rel="stylesheet" href="{{ asset('assets/front/') }}/css/line-awesome.min.css">
     <!-- Main css -->
     <link rel="stylesheet" href="{{ asset('assets/front/') }}/css/main.css">
-
+    @toastifyCss
 </head>
 <body>
 
