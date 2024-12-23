@@ -57,10 +57,10 @@
                             aria-selected="false"> تذاكر الدعم <span class="notification">2</span> </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-Followingg-tab" data-bs-toggle="pill"
+                        <a href="{{ url('user/setting') }}" class="nav-link" id="pills-Followingg-tab" data-bs-toggle="pill"
                             data-bs-target="#pills-Followingg" type="button" role="tab"
                             aria-controls="pills-Followingg" aria-selected="false"> الاعدادات <span
-                                class="notification">22</span> </button>
+                                class="notification">22</span> </a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-Settingss-tab" data-bs-toggle="pill"
@@ -366,11 +366,11 @@
                             <div class="card common-card border border-gray-five">
                                 <div class="card-body">
                                     <div class="no_tickets">
-                                    <i class="fa fa-comments"></i>
-                                    <h6> تواصل معنا في أي وقت اذا احتجت أي مساعدة </h6>
-                                    <button type="submit" class="btn btn-main btn-lg w-100 pill"> اضافة تذكرة جديدة
-                                    </button>
-                                </div>
+                                        <i class="fa fa-comments"></i>
+                                        <h6> تواصل معنا في أي وقت اذا احتجت أي مساعدة </h6>
+                                        <button type="submit" class="btn btn-main btn-lg w-100 pill"> اضافة تذكرة جديدة
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -379,10 +379,10 @@
                 </div>
                 <div class="tab-pane fade" id="pills-Followingg" role="tabpanel" aria-labelledby="pills-Followingg-tab"
                     tabindex="0">
-                    Settingd   dddf
+                    Settingd dddf
                 </div>
-                <div class="tab-pane fade" id="pills-Settingss" role="tabpanel"
-                    aria-labelledby="pills-Settingss-tab" tabindex="0">
+                <div class="tab-pane fade" id="pills-Settingss" role="tabpanel" aria-labelledby="pills-Settingss-tab"
+                    tabindex="0">
 
                     <!-- ================== Setting Section Start ====================== -->
                     <div class="row gy-4">
@@ -484,13 +484,13 @@
                                                 <label class="form-label">Show Country on Your</label>
                                                 <div class="flx-align gap-3 mt-2">
                                                     <div class="common-check common-radio mb-0">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="showCountry" id="yes">
+                                                        <input class="form-check-input" type="radio" name="showCountry"
+                                                            id="yes">
                                                         <label class="form-check-label ps-2" for="yes">Yes</label>
                                                     </div>
                                                     <div class="common-check common-radio mb-0">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="showCountry" id="no">
+                                                        <input class="form-check-input" type="radio" name="showCountry"
+                                                            id="no">
                                                         <label class="form-check-label ps-2" for="no">No</label>
                                                     </div>
                                                 </div>
@@ -629,8 +629,7 @@
                                         <div class="row gy-3">
                                             <div class="col-sm-6 col-xs-6">
                                                 <div class="common-check">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        id="ratingReminder">
+                                                    <input class="form-check-input" type="checkbox" id="ratingReminder">
                                                     <label class="form-check-label" for="ratingReminder"> Rating
                                                         reminder send an email for client rating </label>
                                                 </div>
