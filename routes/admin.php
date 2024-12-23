@@ -10,20 +10,22 @@ use App\Http\Controllers\admin\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\admin\BlogCategoryController;
 use \App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\admin\TermsController;
+
 Route::group(['prefix' => 'admin'], function () {
-// Admin Login
+    // Admin Login
 
     Route::controller(AdminController::class)->group(function () {
         Route::match(['post', 'get'], '/', 'login')->name('admin_login');
         Route::match(['post', 'get'], 'login', 'login')->name('admin_login');
-// Admin Dashboard
+        // Admin Dashboard
         Route::group(['middleware' => 'admin'], function () {
             Route::get('dashboard', 'dashboard');
-// update admin password
+            // update admin password
             Route::match(['post', 'get'], 'update_admin_password', 'update_admin_password');
-// check Admin Password
+            // check Admin Password
             Route::post('check_admin_password', 'check_admin_password');
-// Update Admin Details
+            // Update Admin Details
             Route::match(['post', 'get'], 'update_admin_details', 'update_admin_details');
             Route::get('logout', 'logout')->name('logout');
         });
@@ -64,7 +66,7 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/get-attribute-values/{attributeId}', 'getAttributeValues');
             Route::get('/get-subcategories', 'getSubCategories')->name('get.subcategories');
 
-            Route::match(['post','get'],'follow','follow');
+            Route::match(['post', 'get'], 'follow', 'follow');
         });
         //////////////// Start Faq Controller ////////////////////
         ///
@@ -76,7 +78,7 @@ Route::group(['prefix' => 'admin'], function () {
         });
         ///////////////////  Start Blog Category //////////////////
         ///
-        Route::controller(BlogCategoryController::class)->group(function (){
+        Route::controller(BlogCategoryController::class)->group(function () {
             Route::get('blog_category', 'index');
             Route::match(['post', 'get'], 'blog_category/add', 'store');
             Route::match(['post', 'get'], 'blog_category/update/{id}', 'update');
@@ -84,7 +86,7 @@ Route::group(['prefix' => 'admin'], function () {
         });
         ///////////////////  Start Blog //////////////////
         ///
-        Route::controller(BlogController::class)->group(function (){
+        Route::controller(BlogController::class)->group(function () {
             Route::get('blogs', 'index');
             Route::match(['post', 'get'], 'blog/add', 'store');
             Route::match(['post', 'get'], 'blog/update/{id}', 'update');
@@ -92,12 +94,19 @@ Route::group(['prefix' => 'admin'], function () {
         });
         //////////////// Start Reviews //////////////////////
         ///
-        Route::controller(ReviewController::class)->group(function (){
-            Route::get('reviews','index');
-            Route::match(['post','get'],'review/store','store');
-            Route::match(['post','get'],'review/update/{id}','update');
-            Route::post('review/delete/{id}','delete');
+        Route::controller(ReviewController::class)->group(function () {
+            Route::get('reviews', 'index');
+            Route::match(['post', 'get'], 'review/store', 'store');
+            Route::match(['post', 'get'], 'review/update/{id}', 'update');
+            Route::post('review/delete/{id}', 'delete');
         });
+        ################################## Start Terms Pages ################
+        Route::controller(TermsController::class)->group(function () {
+            Route::match(['post', 'get'], 'terms', 'Terms');
+            Route::match(['post', 'get'], 'return-policy', 'ReturnPolicy');
+            Route::match(['post', 'get'], 'privacy-policy', 'PrivacyPolicy');
+        });
+        ################################## End Terms Pages ###################
     });
 
 });

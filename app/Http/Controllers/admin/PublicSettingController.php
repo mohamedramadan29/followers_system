@@ -54,8 +54,17 @@ class PublicSettingController extends Controller
                 'website_short_desc' => $data['website_short_desc'],
                 'website_description' => $data['website_description'],
                 'website_keywords' => $data['website_keywords'],
+                'phone'=>$data['phone'],
+                'email'=>$data['email'],
+                'facebook'=>$data['facebook'],
+                'twitter'=>$data['twitter'],
+                'instagram'=>$data['instagram'],
+                'linkedin'=>$data['linkedin'],
+                'youtube'=>$data['youtube'],
+                'snapchap'=>$data['snapchap'],
+                'pinterest'=>$data['pinterest'],
+                'whatsapp'=>$data['whatsapp'],
             ]);
-
             return $this->success_message('تم تعديل الاعدادات العامة للموقع بنجاح');
         }
 

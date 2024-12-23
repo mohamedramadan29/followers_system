@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\front\TermsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\front\FrontController;
 use App\Http\Controllers\front\ContactController;
@@ -50,6 +51,15 @@ Route::controller(ProductController::class)->group(function () {
 });
 Route::controller(ContactController::class)->group(function () {
     Route::get('contact', 'index');
+    Route::post('contact','store')->name('send_message');
+});
+
+######################## Terms Controller ##################
+Route::controller(TermsController::class)->group(function(){
+
+    Route::get('terms','terms');
+    Route::get('return-policy','ReturnPolicy');
+    Route::get('privacy-policy','PrivacyPolicy');
 });
 
 

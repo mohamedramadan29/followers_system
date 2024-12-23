@@ -17,7 +17,7 @@ class RegisterController extends Controller
     use Message_Trait;
     public function show_register()
     {
-        if(Auth::user()){
+        if (Auth::user()) {
             return Redirect()->route('profile');
         }
         return view("front.register");
@@ -35,7 +35,7 @@ class RegisterController extends Controller
                     'email' => 'required|email|unique:users,email|max:150',
                     'password' => 'required|min:8',
                     'confirm-password' => 'required|same:password',
-                    'g-recaptcha-response'=>['required','captcha']
+                    'g-recaptcha-response' => ['required', 'captcha']
                 ];
                 $messages = [
                     'name.required' => 'من فضلك ادخل  الاسم',
@@ -46,8 +46,9 @@ class RegisterController extends Controller
                     'password.required' => 'من فضلك ادخل كلمة المرور ',
                     'password.min' => ' من فضلك ادخل كلمة مرور قوية اكثر من 8 احرف وارقام ',
                     'confirm-password.same' => 'من فضلك اكد كلمة المرور بشكل صحيح ',
-                    'confirm-password.required'=>'يجب تاكيد كلمة المرور',
-                    'g-recaptcha-response.required'=>' من فضلك حدد انك لست روبوت  ',
+                    'confirm-password.required' => 'يجب تاكيد كلمة المرور',
+                    'g-recaptcha-response.required' => 'من فضلك قم بتأكيد أنك لست روبوتًا',
+                    'g-recaptcha-response.captcha' => 'فشل التحقق من reCAPTCHA، يرجى المحاولة مرة أخرى'
                 ];
 
                 $validator = Validator::make($data, $rules, $messages);

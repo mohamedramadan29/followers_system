@@ -1,4 +1,9 @@
 <!-- ==================== Footer Start Here ==================== -->
+@php
+use App\Models\admin\PublicSetting;
+$setting = PublicSetting::first();
+@endphp
+
 <footer class="footer-section ">
     <img src="{{ asset('assets/front/') }}/images/shapes/pattern.png" alt="" class="bg-pattern">
     <img src="{{ asset('assets/front/') }}/images/shapes/element1.png" alt="" class="element one">
@@ -24,16 +29,14 @@
                 <div class="footer-widget">
                     <h5 class="footer-widget__title text-white"> روابط </h5>
                     <ul class="footer-lists">
-                        <li class="footer-lists__item"><a href="all-product.html" class="footer-lists__link"> الرئيسية
+                        <li class="footer-lists__item"><a href="{{ url('/') }}" class="footer-lists__link"> الرئيسية
                             </a></li>
                         <li class="footer-lists__item"><a href="product-details.html" class="footer-lists__link">
                                 الاقسام </a></li>
                         <li class="footer-lists__item"><a href="profile.html" class="footer-lists__link"> الخدمات </a>
                         </li>
-                        <li class="footer-lists__item"><a href="cart.html" class="footer-lists__link"> شروط الاستخدام
-                            </a>
-                        </li>
-                        <li class="footer-lists__item"><a href="dashboard.html" class="footer-lists__link">تواصل معنا
+
+                        <li class="footer-lists__item"><a href="{{ url('contact') }}" class="footer-lists__link">تواصل معنا
                             </a>
                         </li>
                     </ul>
@@ -44,26 +47,62 @@
                     <h5 class="footer-widget__title text-white"> تابعنا </h5>
                     <div class="footer-widget__social">
                         <ul class="social-icon-list">
-                            <li class="social-icon-list__item">
-                                <a href="https://www.facebook.com/" class="social-icon-list__link flx-center"><i
-                                        class="fab fa-facebook-f"></i></a>
-                            </li>
-                            <li class="social-icon-list__item">
-                                <a href="https://www.twitter.com/" class="social-icon-list__link flx-center"> <i
-                                        class="fab fa-twitter"></i></a>
-                            </li>
-                            <li class="social-icon-list__item">
-                                <a href="https://www.linkedin.com/" class="social-icon-list__link flx-center"> <i
-                                        class="fab fa-linkedin-in"></i></a>
-                            </li>
-                            <li class="social-icon-list__item">
-                                <a href="https://www.pinterest.com/" class="social-icon-list__link flx-center"> <i
-                                        class="fab fa-pinterest-p"></i></a>
-                            </li>
-                            <li class="social-icon-list__item">
-                                <a href="https://www.pinterest.com/" class="social-icon-list__link flx-center"> <i
-                                        class="fab fa-youtube"></i></a>
-                            </li>
+                            @if ($setting['facebook'] != '')
+                                <li class="social-icon-list__item">
+                                    <a href="{{ $setting['facebook'] }}"
+                                        class="social-icon-list__link  flx-center"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                </li>
+                            @endif
+
+                            @if ($setting['twitter'] != '')
+                                <li class="social-icon-list__item">
+                                    <a href="{{ $setting['twitter'] }}"
+                                        class="social-icon-list__link  flx-center"> <i
+                                            class="fab fa-twitter"></i></a>
+                                </li>
+                            @endif
+
+                            @if ($setting['linkedin'] != '')
+                                <li class="social-icon-list__item">
+                                    <a href="{{ $setting['linkedin'] }}"
+                                        class="social-icon-list__link  flx-center"> <i
+                                            class="fab fa-linkedin-in"></i></a>
+                                </li>
+                            @endif
+
+                            @if ($setting['pinterest'] != '')
+                                <li class="social-icon-list__item">
+                                    <a href="{{ $setting['pinterest'] }}"
+                                        class="social-icon-list__link  flx-center"> <i
+                                            class="fab fa-pinterest-p"></i></a>
+                                </li>
+                            @endif
+
+                            @if ($setting['youtube'] != '')
+                                <li class="social-icon-list__item">
+                                    <a href="{{ $setting['youtube'] }}"
+                                        class="social-icon-list__link  flx-center"> <i
+                                            class="fab fa-youtube"></i></a>
+                                </li>
+                            @endif
+
+                            @if ($setting['instagram'] != '')
+                                <li class="social-icon-list__item">
+                                    <a href="{{ $setting['instagram'] }}"
+                                        class="social-icon-list__link flx-center"> <i
+                                            class="fab fa-instagram"></i></a>
+                                </li>
+                            @endif
+
+                            @if ($setting['whatsapp'] != '')
+                                <li class="social-icon-list__item">
+                                    <a href="{{ $setting['whatsapp'] }}"
+                                        class="social-icon-list__link flx-center"> <i
+                                            class="fab fa-whatsapp"></i></a>
+                                </li>
+                            @endif
+
                         </ul>
                     </div>
 
@@ -90,8 +129,9 @@
         <div class="bottom-footer__inner flx-between gap-3">
             <p class="bottom-footer__text font-14">جميع الحقوق محفوظة © 2024 أرخص موقع زيادة متابعين </p>
             <div class="footer-links">
-                <a href="#" class="footer-link font-14"> شروط الاستخدام </a>
-                <a href="#" class="footer-link font-14"> سياسة الخصوصية </a>
+                <a href="{{ url('terms') }}" class="footer-link font-14"> الشروط والاحكام </a>
+                <a href="{{ url('return-policy') }}" class="footer-link font-14"> سياسة الاستبدال و الاسترجاع </a>
+                <a href="{{ url('privacy-policy') }}" class="footer-link font-14"> سياسة الاستخدام والخصوصية </a>
             </div>
         </div>
     </div>

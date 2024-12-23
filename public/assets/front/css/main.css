@@ -3827,8 +3827,8 @@ input[type=number] {
 }
 
 .footer-lists__link::before {
-    position: absolute;
-    content: "\f105";
+
+    content: "\f104";
     font-family: "Line Awesome Free";
     font-weight: 900;
     left: 0;
