@@ -10857,7 +10857,7 @@ border-bottom: 0;
     justify-content: flex-end;
 }
 
- 
+
 
 .message-plunch .dash-msg-text p {
     font-size: 15px;
@@ -10909,4 +10909,36 @@ border-bottom: 0;
 .message-reply button {
     border-radius: 4px;
     margin-top: 5px;
+}
+
+
+.add_balance .modal-header .btn-close{
+    margin: 0;
+}
+
+.add_balance .modal-content input[type='number']{
+    height: 60px;
+    font-size: 25px;
+}
+.add_balance .modal-content input::placeholder{
+    font-size: 25px;
+}
+
+.add_balance .modal-content .btn-main{
+    height: 50px;
+    font-size: 20px;
+    position: relative;
+    padding: 0;
+}
+.add_balance .charge_info{
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.add_balance .charge_info li{
+    text-align: right;
+
+}
+.add_balance .charge_info li i{
+    color: #025789;
 }

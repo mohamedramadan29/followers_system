@@ -42,7 +42,7 @@
 
                                 <div class="sales">
                                     <span class="sales__text mb-1 text-heading fw-500">الرصيد الحالي </span>
-                                    <h5 class="sales__amount mb-0">15,830 ر.س</h5>
+                                    <h5 class="sales__amount mb-0"> {{ number_format(Auth::user()->balance,2) }} دولار </h5>
                                 </div>
                             </div>
                         </div>
@@ -55,9 +55,7 @@
                                 class="notification">20</span></button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-portfolio-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-portfolio" type="button" role="tab" aria-controls="pills-portfolio"
-                            aria-selected="false"> الرصيد </button>
+                        <a href="{{ url('user/balance') }}" class="nav-link"> الرصيد </a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a href="{{ url('user/tickets') }}" class="nav-link active"> تذاكر الدعم <span

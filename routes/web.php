@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\front\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\front\FrontController;
 use App\Http\Controllers\front\TermsController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\front\User\ProfileController;
 use App\Http\Controllers\front\Auth\RegisterController;
 use App\Http\Controllers\front\TicketMessageController;
 use App\Http\Controllers\front\Auth\SocialLoginController;
+use App\Http\Controllers\front\UserBalanceController;
 
 Route::controller(LoginController::class)->group(function () {
 
@@ -42,10 +44,14 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('alerts', 'alerts');
         Route::get('balance', 'balance');
     });
+    Route::controller(UserBalanceController::class)->group(function () {
+        Route::get('balance', 'index');
+        Route::post('balance/store', 'store')->name('store_balance');
+    });
     Route::controller(TicketController::class)->group(function () {
         Route::get('tickets', 'tickets')->name('tickets');
-        Route::get('ticket/add','create');
-        Route::post('ticket/store','store')->name('store_ticket');
+        Route::get('ticket/add', 'create');
+        Route::post('ticket/store', 'store')->name('store_ticket');
     });
     Route::controller(TicketMessageController::class)->group(function () {
         Route::get('ticket/{id}', 'index');
@@ -73,6 +79,13 @@ Route::controller(TermsController::class)->group(function () {
     Route::get('privacy-policy', 'PrivacyPolicy');
 });
 
+
+##################### Blog Controller #####################
+
+Route::controller(BlogController::class)->group(function () {
+    Route::get('blog', 'index');
+    Route::get('blog/{slug}', 'show');
+});
 
 Route::get('auth/{provider}/redirect', action: [SocialLoginController::class, 'redirect'])->name('auth.google.redirect');
 Route::get('auth/{provider}/callback', [SocialLoginController::class, 'callback'])->name('auth.google.callback');

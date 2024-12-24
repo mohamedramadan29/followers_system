@@ -35,10 +35,12 @@ $setting = PublicSetting::first();
                                 الاقسام </a></li>
                         <li class="footer-lists__item"><a href="profile.html" class="footer-lists__link"> الخدمات </a>
                         </li>
-
                         <li class="footer-lists__item"><a href="{{ url('contact') }}" class="footer-lists__link">تواصل معنا
                             </a>
                         </li>
+                        <li class="footer-lists__item"><a href="{{ url('blog') }}" class="footer-lists__link"> المدونة 
+                        </a>
+                    </li>
                     </ul>
                 </div>
             </div>

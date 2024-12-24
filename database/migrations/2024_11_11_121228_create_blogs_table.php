@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('meta_title');
             $table->text('meta_desc');
             $table->string('meta_keywords');
+            $table->tinyInteger('status')->default(1);  
             $table->timestamps();
         });
     }
