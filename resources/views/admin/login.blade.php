@@ -63,6 +63,15 @@
                                                 <label class="form-check-label" for="checkbox-signin"> تذكرني </label>
                                             </div>
                                         </div>
+                                        <div class="mb-3">
+                                            {!! NoCaptcha::display() !!}
+                                            @if ($errors->has('g-recaptcha-response'))
+                                                <span class="help-block">
+                                                    <strong
+                                                        class="text-danger">{{ $errors->first('g-recaptcha-response') }}</strong>
+                                                </span>
+                                            @endif
+                                        </div>
 
                                         <div class="mb-1 text-center d-grid">
                                             <button class="btn btn-primary" type="submit"> تسجيل دخول </button>

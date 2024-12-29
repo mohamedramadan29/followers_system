@@ -43,7 +43,6 @@
                                             <input required type="text" id="name" class="form-control" name="name"
                                                    value="{{old('name')}}">
                                         </div>
-
                                     </div>
 
                                     <div class="col-lg-6">
@@ -64,7 +63,6 @@
                                             <option  value="1">نعم</option>
                                             <option selected value="0">لا</option>
                                         </select>
-
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="mb-0">

@@ -43,6 +43,27 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link menu-arrow" href="#sidebarProviders" data-bs-toggle="collapse" role="button"
+                    aria-expanded="false" aria-controls="sidebarProviders">
+                    <span class="nav-icon">
+                        <iconify-icon icon="solar:t-shirt-bold-duotone"></iconify-icon>
+                    </span>
+                    <span class="nav-text"> مزودي الخدمات  </span>
+                </a>
+                <div class="collapse" id="sidebarProviders">
+                    <ul class="nav sub-navbar-nav">
+
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{ url('admin/providers') }}">  مزودي الخدمات  </a>
+                        </li>
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{ url('admin/provider/add') }}">  اضافة مزود جديد   </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link menu-arrow" href="#sidebarProducts" data-bs-toggle="collapse" role="button"
                     aria-expanded="false" aria-controls="sidebarProducts">
                     <span class="nav-icon">
@@ -52,6 +73,7 @@
                 </a>
                 <div class="collapse" id="sidebarProducts">
                     <ul class="nav sub-navbar-nav">
+
                         <li class="sub-nav-item">
                             <a class="sub-nav-link" href="{{ url('admin/products') }}"> جميع الخدمات </a>
                         </li>

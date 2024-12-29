@@ -30,10 +30,11 @@
 {{--<script src="{{asset('assets/admin/vendor/jsvectormap/maps/world.js')}}"></script>--}}
 
 <!-- Dashboard Js -->
-
+<script src="https://cdn.tiny.cloud/1/c8u902w1qjlgsxdu73djug5kw4ckg9n6ggwi5lynenmwrw25/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('assets/admin/js/pages/dashboard.js')}}"></script>
 
 @yield('js')
 @toastifyJs
+{!! NoCaptcha::renderJs() !!}
 </body>
 </html>

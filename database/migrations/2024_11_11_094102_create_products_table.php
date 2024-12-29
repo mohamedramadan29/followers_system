@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('provider_id')->references('id')->on('providers')->cascadeOnDelete();
             $table->string('service_id')->unique();
             $table->string('category_id');
+            $table->string('sub_category_id');
             $table->string('image');
             $table->longText('description')->nullable();
             $table->double('profit_percentage', 8, 2);

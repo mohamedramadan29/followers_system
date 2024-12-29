@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\admin\AdminController;
-use App\Http\Controllers\admin\FaqController;
-use App\Http\Controllers\admin\MainCategoryController;
-use App\Http\Controllers\admin\ProductController;
-use App\Http\Controllers\admin\PublicSettingController;
-use App\Http\Controllers\admin\ReviewController;
-use App\Http\Controllers\admin\SubCategoryController;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\admin\BlogCategoryController;
+use App\Http\Controllers\admin\FaqController;
 use \App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\TermsController;
+use App\Http\Controllers\admin\ReviewController;
+use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\ProviderController;
+use App\Http\Controllers\admin\SubCategoryController;
+use App\Http\Controllers\admin\MainCategoryController;
+use \App\Http\Controllers\admin\BlogCategoryController;
+use App\Http\Controllers\admin\PublicSettingController;
 
 Route::group(['prefix' => 'admin'], function () {
     // Admin Login
@@ -107,6 +108,15 @@ Route::group(['prefix' => 'admin'], function () {
             Route::match(['post', 'get'], 'privacy-policy', 'PrivacyPolicy');
         });
         ################################## End Terms Pages ###################
+
+        ########################### Start Providers ############################
+        Route::controller(ProviderController::class)->group(function () {
+            Route::get('providers', 'index');
+            Route::match(['post', 'get'], 'provider/add', 'store');
+            Route::match(['post', 'get'], 'provider/update/{id}', 'update');
+            Route::post('provider/delete/{id}', 'delete');
+        });
+        ########################### End Providers ############################
     });
 
 });

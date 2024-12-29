@@ -20,4 +20,14 @@ class Product extends Model
         return $this->belongsTo(SubCategory::class, 'sub_category_id');
     }
 
+    public function Provider()
+    {
+        return $this->belongsTo(Provider::class, 'provider_id');
+    }
+
+    public function SubServices()
+    {
+        return $this->hasMany(SubService::class, 'product_id');
+    }
+
 }
