@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\front\OrdersController;
 use App\Http\Controllers\front\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\front\FrontController;
@@ -65,6 +66,8 @@ Route::controller(FrontController::class)->group(function () {
 Route::controller(ProductController::class)->group(function () {
     Route::get('product/{slug}', 'index');
     Route::get('product_details/{id}', 'showServiceDetails');
+    Route::get('/get-sub-service-details/{product_id}/{subServiceId}', 'getSubServiceDetails');
+
 });
 Route::controller(ContactController::class)->group(function () {
     Route::get('contact', 'index');
@@ -86,6 +89,16 @@ Route::controller(BlogController::class)->group(function () {
     Route::get('blog', 'index');
     Route::get('blog/{slug}', 'show');
 });
+
+########################## Start Make Order ################
+
+
+Route::controller(OrdersController::class)->group(function () {
+
+    Route::post('make-order', 'store')->name('make_order');
+});
+
+########################## End Make Order ################
 
 Route::get('auth/{provider}/redirect', action: [SocialLoginController::class, 'redirect'])->name('auth.google.redirect');
 Route::get('auth/{provider}/callback', [SocialLoginController::class, 'callback'])->name('auth.google.callback');

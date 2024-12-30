@@ -1,9 +1,8 @@
 @extends('front.layouts.master')
 @section('title')
-{{ $service['name'] }}
+    {{ $service['name'] }}
 @endsection
 @section('content')
-
     <!-- ======================== Breadcrumb Two Section Start ===================== -->
     <section class="breadcrumb border-bottom p-0 d-block section-bg position-relative z-index-1">
 
@@ -24,20 +23,19 @@
                                     <span class="breadcrumb-list__icon font-10"><i class="fas fa-chevron-right"></i></span>
                                 </li>
                                 <li class="breadcrumb-list__item font-14 text-body">
-                                    <a href="all-product.html" class="breadcrumb-list__link text-body hover-text-main">
-                                        الخدمات </a>
+                                    <a href="{{ url('category/' . $service['Main_Category']['slug']) }}"
+                                        class="breadcrumb-list__link text-body hover-text-main">
+                                        {{ $service['Main_Category']['name'] }} </a>
                                 </li>
                                 <li class="breadcrumb-list__item font-14 text-body">
                                     <span class="breadcrumb-list__icon font-10"><i class="fas fa-chevron-right"></i></span>
                                 </li>
                                 <li class="breadcrumb-list__item font-14 text-body">
-                                    <span class="breadcrumb-list__text"> خدمة زيادة متابعين انستقرام الأكثر طلباً + ضمان مدى
-                                        الحياة </span>
+                                    <span class="breadcrumb-list__text"> {{ $service['name'] }} </span>
                                 </li>
                             </ul>
 
-                            <h3 class="breadcrumb-two-content__title mb-3 text-capitalize"> خدمة زيادة متابعين انستقرام
-                                الأكثر طلباً + ضمان مدى الحياة </h3>
+                            <h3 class="breadcrumb-two-content__title mb-3 text-capitalize"> {{ $service['name'] }} </h3>
 
                             <div class="breadcrumb-content flx-align gap-3">
 
@@ -59,7 +57,7 @@
                                     </span>
                                     <span class="text"> ضمان مدى الحياة </span>
                                 </div>
-                                <div class="breadcrumb-content__item text-heading fw-500 flx-align gap-2">
+                                {{-- <div class="breadcrumb-content__item text-heading fw-500 flx-align gap-2">
                                     <span class="icon">
                                         <img src="{{ asset('assets/front/') }}/images/icons/check-icon.svg" alt=""
                                             class="white-version">
@@ -67,13 +65,13 @@
                                             alt="" class="dark-version">
                                     </span>
                                     <span class="text"> 29 تقييم </span>
-                                </div>
+                                </div> --}}
                             </div>
-                            <div class="breadcrupm_price_section">
+                            {{-- <div class="breadcrupm_price_section">
                                 <h5 type="button" class="font-heading font-18"> السعر لكل <span class="numbers"> 50 </span>
                                 </h5>
                                 <h6 class="product-sidebar__title product_price"> 1.00 <span> ر.س </span> </h6>
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
@@ -138,25 +136,45 @@
                                 <div class="tab-pane fade show active" id="pills-price-select" role="tabpanel"
                                     aria-labelledby="pills-price-select-tab" tabindex="0">
                                     <br>
-                                    <form action="#" autocomplete="off" method="post" class="form-select-product-details">
+                                    <form action="{{ route('make_order') }}" autocomplete="off" method="post"
+                                        class="form-select-product-details">
+                                        @csrf
                                         <div class="col-sm-12 col-xs-12 mb-3">
                                             <label for="Stateee" class="form-label mb-2 font-18 font-heading fw-600"> حدد
                                                 الخدمة </label>
                                             <div class="select-has-icon">
                                                 <select class="common-input border" id="Stateee">
-                                                    <option value="1"> حدد الخدمة </option>
-                                                    <option value=""> الخدمة الاولي </option>
-                                                    <option value=""> الخدمة الثانية </option>
-                                                    <option value=""> الخدمة الثالثة </option>
+                                                    <option value="" selected disabled> حدد الخدمة </option>
+                                                    @foreach ($service['SubServices'] as $subservice)
+                                                        <option value="{{ $subservice['provider_service_id'] }}">
+                                                            {{ $subservice['name'] }} </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-sm-12 col-xs-12 mb-3">
+                                            <div class="service_price">
+                                                <p> السعر لكل <span
+                                                        id="min_quantity">{{ $service_from_provider->min }}</span></p>
+                                                <h6 id="total_price_for_min">{{ $service_from_provider->final_price }} $
+                                                </h6>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12 col-xs-12 mb-3">
                                             <label for="follower_num" class="form-label mb-2 font-18 font-heading fw-600">
                                                 العدد المطلوب
                                             </label>
-                                            <input type="numbers" name="followers_num" class="common-input"
-                                                id="follower_num" placeholder=" ادخل العدد المطلوب  ">
+                                            <input type="number" min="{{ $service_from_provider->min }}"
+                                                max="{{ $service_from_provider->max }}" name="followers_num"
+                                                class="common-input" id="follower_num" placeholder="ادخل العدد المطلوب">
+                                            <div class="min_max_quantity">
+                                                <p> اقل عدد هو :: <span
+                                                        id="min_quantity">{{ $service_from_provider->min }}</span> </p>
+                                                <p> اكبر عدد هو :: <span
+                                                        id="max_quantity">{{ $service_from_provider->max }}</span> </p>
+                                            </div>
+
                                         </div>
                                         <div class="col-sm-12 col-xs-12 mb-3">
                                             <label for="account_link" class="form-label mb-2 font-18 font-heading fw-600">
@@ -167,17 +185,156 @@
                                         </div>
                                         <div class="col-sm-12 col-xs-12 mb-3 last_price">
                                             <div class="price_section">
-                                                <p>   <img src="{{ asset('assets/front/images/money1.svg') }}" alt=""> السعر </p>
-                                                <h4 class="price">  20 <span> ر.س </span> </h4>
+                                                <p>
+                                                    <img src="{{ asset('assets/front/images/money1.svg') }}"
+                                                        alt=""> السعــر الكــلي
+                                                </p>
+                                                <h4 class="price">
+                                                    <span
+                                                        id="final_price">{{ $service_from_provider->final_price }}</span>
+                                                    <span> $ </span>
+                                                </h4>
                                             </div>
                                         </div>
-                                        <button type="button"
+                                        <div class="service_advantages">
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    @if ($service['speed_active'] == 1)
+                                                        <div class="info">
+                                                            <i class="fa fa-bolt"></i>
+                                                            <p> السرعة </p>
+                                                            <h5> {{ $service['speed_active_text'] }} </h5>
+                                                        </div>
+                                                    @else
+                                                        <div class="info disabled">
+                                                            <i class="fa fa-bolt"></i>
+                                                            <p> السرعة </p>
+                                                            <h5> غير متاح </h5>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    @if ($service['start_time'] == 1)
+                                                        <div class="info">
+                                                            <i class="fa fa-stopwatch"></i>
+                                                            <p> وقت البدء </p>
+                                                            <h5> {{ $service['start_time_text'] }} </h5>
+                                                        </div>
+                                                    @else
+                                                        <div class="info disabled">
+                                                            <i class="fa fa-stopwatch"></i>
+                                                            <p> وقت البدء </p>
+                                                            <h5> غير متاح </h5>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    @if ($service['security'] == 1)
+                                                        <div class="info">
+                                                            <i class="fa fa-lock"></i>
+                                                            <p> الضمان </p>
+                                                            <h5> {{ $service['security_text'] }} </h5>
+                                                        </div>
+                                                    @else
+                                                        <div class="info disabled">
+                                                            <i class="fa fa-lock"></i>
+                                                            <p> الضمان </p>
+                                                            <h5> غير متاح </h5>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    @if ($service['quality_status'] == 1)
+                                                        <div class="info">
+                                                            <i class="fa fa-check-double"></i>
+                                                            <p> الجودة </p>
+                                                            <div class="progress" role="progressbar"
+                                                                aria-label="Basic example"
+                                                                aria-valuenow="{{ $service['quality_percentage'] }}"
+                                                                aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar"
+                                                                    style="width: {{ $service['quality_percentage'] }}%">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @else
+                                                        <div class="info disabled">
+                                                            <i class="fa fa-check-double"></i>
+                                                            <p> الجودة </p>
+                                                            <h5> غير متاح </h5>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit"
                                             class="btn btn-main d-flex w-100 justify-content-center align-items-center gap-2 pill px-sm-5 mt-32">
                                             طلب الخدمة الان
                                             <img src="{{ asset('assets/front/') }}/images/icons/add-to-cart.svg"
                                                 alt="">
                                         </button>
                                     </form>
+                                    <script>
+                                        // عند تغيير الخدمة الفرعية من الـ select
+                                        document.getElementById('Stateee').addEventListener('change', function() {
+                                            const provider_service_id = this.value;
+                                            const service_id = "{{ $service['id'] }}"; // أخذ ID الخدمة من الـ Blade
+                                            if (provider_service_id) {
+                                                // استرجاع البيانات من السيرفر عن طريق fetch
+                                                fetch(`/get-sub-service-details/${service_id}/${provider_service_id}`)
+                                                    .then(response => response.json())
+                                                    .then(data => {
+                                                        // تحديث البيانات بناءً على الخدمة الفرعية
+                                                        document.getElementById('min_quantity').textContent = data.min;
+                                                        document.getElementById('max_quantity').textContent = data.max;
+                                                        document.getElementById('total_price_for_min').textContent = `${data.final_price} $`;
+                                                        document.getElementById('final_price').textContent = data.final_price;
+                                                        const followerInput = document.getElementById('follower_num');
+                                                        const minQuantityElement = document.getElementById('min_quantity');
+                                                        const finalPriceElement = document.getElementById('final_price');
+                                                        // تحديث القيم بناءً على الخدمة الفرعية
+                                                        const minQuantity = parseInt(data.min);
+                                                        const totalPriceForMin = parseFloat(data.final_price);
+                                                        unitPrice = totalPriceForMin / minQuantity; // حساب سعر الوحدة بناءً على الخدمة الفرعية
+                                                        followerInput.addEventListener('input', function() {
+                                                            const quantity = parseInt(followerInput.value);
+                                                            // التحقق إذا كان العدد المدخل أكبر من أو يساوي الحد الأدنى
+                                                            if (quantity >= parseInt(minQuantityElement.innerText)) {
+                                                                const totalPrice = (quantity * unitPrice).toFixed(
+                                                                    3); // حساب السعر النهائي بناءً على الخدمة الأساسية أو الفرعية
+                                                                finalPriceElement.innerText =
+                                                                    `${totalPrice} $`; // تحديث السعر في الصفحة
+                                                            } else {
+                                                                finalPriceElement.innerText = "0"; // في حال الإدخال أقل من الحد الأدنى
+                                                            }
+                                                        });
+                                                    })
+                                                    .catch(error => console.error('Error:', error));
+                                            }
+                                        });
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            // العناصر المهمة
+                                            const followerInput = document.getElementById('follower_num');
+                                            const finalPriceElement = document.getElementById('final_price');
+                                            const totalPriceForMinElement = document.getElementById('total_price_for_min');
+                                            const minQuantityElement = document.getElementById('min_quantity');
+                                            let unitPrice = parseFloat(totalPriceForMinElement.innerText) / parseInt(minQuantityElement
+                                                .innerText); // الحساب الأولي لسعر الوحدة من الخدمة الأساسية
+                                            // عند تغيير العدد المدخل، تحديث السعر النهائي
+                                            followerInput.addEventListener('input', function() {
+                                                const quantity = parseInt(followerInput.value);
+                                                // التحقق إذا كان العدد المدخل أكبر من أو يساوي الحد الأدنى
+                                                if (quantity >= parseInt(minQuantityElement.innerText)) {
+                                                    const totalPrice = (quantity * unitPrice).toFixed(
+                                                        3); // حساب السعر النهائي بناءً على الخدمة الأساسية أو الفرعية
+                                                    finalPriceElement.innerText = `${totalPrice} $`; // تحديث السعر في الصفحة
+                                                } else {
+                                                    finalPriceElement.innerText = "0"; // في حال الإدخال أقل من الحد الأدنى
+                                                }
+                                            });
+                                        });
+                                    </script>
+
                                 </div>
                                 <div class="tab-pane fade" id="pills-product-details" role="tabpanel"
                                     aria-labelledby="pills-product-details-tab" tabindex="0">
@@ -185,9 +342,7 @@
                                     <div class="product-details">
 
                                         <p class="product-details__desc">
-
-                                            خدمة زيادة متابعين انستقرام الأكثر طلباً + ضمان + متابعين لديهم صور شخصية
-                                            ومتابعين ومنشورات وينشرون باستمرار + ضمان عدم نقصان + الأفضل على الإطلاق
+                                            {{ $service['description'] }}
                                         </p>
 
                                         <div class="product-details__item">
@@ -718,8 +873,8 @@
         </div>
     </section>
     <!-- =========================== Arrival Product Section End ========================== -->
+@endsection
 
 
-
-
+@section('js')
 @endsection

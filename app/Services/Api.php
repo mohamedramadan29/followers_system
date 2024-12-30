@@ -4,11 +4,18 @@ namespace App\Services;
 
 class Api
 {
-    /** API URL */
-    public $api_url = 'https://drd3m.me/api/v2';
+    private $api_url;
+    private $api_key;
 
+    public function __construct($api_url, $api_key)
+    {
+        $this->api_url = $api_url;
+        $this->api_key = $api_key;
+    }
+    /** API URL */
+    //public $api_url = 'https://drd3m.me/api/v2';
     /** Your API key */
-    public $api_key = '698537e2ce4e3e8069ce577ee8ed160e';
+    //  public $api_key = '698537e2ce4e3e8069ce577ee8ed160e';
 
     /** Get services */
     public function services()

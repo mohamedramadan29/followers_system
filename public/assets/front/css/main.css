@@ -10623,6 +10623,85 @@ border-bottom: 0;
     top: 8px;
 }
 
+/************************** Service Advanatges ##################### */
+
+.service_advantages{
+
+}
+.service_advantages .info{
+    text-align: center;
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #f1f0f0;
+
+}
+.service_advantages .info i{
+    color: #005687;
+    font-size: 30px;
+}
+.service_advantages .info p{
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.service_advantages .info h5{
+    font-size: 16px;
+    color: #605c5c;
+}
+.service_advantages .info .progress{
+    background-color: #ece9e9;
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+
+.service_advantages .info .progress-bar{
+    background-color: #005687;
+}
+
+.service_advantages .disabled{
+    opacity: 0.5;
+}
+.service_price {
+
+}
+.service_price p{
+    color: #000;
+    font-size: 17px;
+}
+.service_price p span{
+    color: #005687;
+    border-bottom: 1px solid #005687;
+    font-size: 17px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.service_price h6{
+    font-weight: bold;
+    color: #005687;
+    font-size: 25px;
+    margin-top: 10px;
+
+}
+.min_max_quantity{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+.min_max_quantity p{
+    font-size: 12px;
+    opacity: .8;
+    margin-top: 5px;
+}
+.min_max_quantity p span{
+    font-weight: bold;
+    color: #005687;
+}
+/************************** END Service Advanatges ##################### */
+
+
+
 
 .ticket_search {
     display: flex;
