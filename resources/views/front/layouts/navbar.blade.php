@@ -1,7 +1,6 @@
 @php
-
     $publicsetting = \App\Models\admin\PublicSetting::first();
-
+    $maincategories = \App\Models\admin\MainCategory::where('status', 1)->get();
 @endphp
 
 <!-- ==================== Mobile Menu Start Here ==================== -->
@@ -23,6 +22,12 @@
                 <li class="nav-menu__item">
                     <a href="{{ url('category') }}" class="nav-menu__link"> الاكثر مبيعا </a>
                 </li>
+                @foreach ($maincategories as $category)
+                    <li class="nav-menu__item">
+                        <a href="{{ url('category/' . $category->id) }}" class="nav-menu__link"> {{ $category->name }}
+                        </a>
+                    </li>
+                @endforeach
                 <li class="nav-menu__item">
                     <a href="{{ url('contact') }}" class="nav-menu__link"> فيسبوك </a>
                 </li>
@@ -79,15 +84,11 @@
                         <li class="nav-menu__item">
                             <a href="{{ url('category') }}" class="nav-menu__link"> الاكثر مبيعا </a>
                         </li>
-                        <li class="nav-menu__item">
-                            <a href="{{ url('contact') }}" class="nav-menu__link"> فيسبوك </a>
-                        </li>
-                        <li class="nav-menu__item">
-                            <a href="{{ url('contact') }}" class="nav-menu__link"> انستجرام </a>
-                        </li>
-                        <li class="nav-menu__item">
-                            <a href="{{ url('contact') }}" class="nav-menu__link"> تيك توك </a>
-                        </li>
+                        @foreach ($maincategories as $category)
+                            <li class="nav-menu__item">
+                                <a href="{{ url('category/'.$category['slug']) }}" class="nav-menu__link"> {{ $category['name'] }} </a>
+                            </li>
+                        @endforeach
                         <li class="nav-menu__item">
                             <a href="{{ url('contact') }}" class="nav-menu__link"> اتصل بنا </a>
                         </li>

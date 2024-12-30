@@ -1,5 +1,7 @@
 @extends('front.layouts.master')
-@section('title', ' تفاصيل المنتج ')
+@section('title')
+{{ $service['name'] }}
+@endsection
 @section('content')
 
     <!-- ======================== Breadcrumb Two Section Start ===================== -->

@@ -9,4 +9,14 @@ class MainCategory extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function subCategories()
+    {
+        return $this->hasMany(SubCategory::class, 'parent_id');
+    }
+    
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id');
+    }
 }

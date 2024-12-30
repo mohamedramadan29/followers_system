@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Services\Api;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index($slug)
     {
-        return view("front.product");
+        $service = Product::where('slug', $slug)->first();
+        
+        return view("front.product",compact('service'));
     }
-
 
     public function showServiceDetails($id)
     {

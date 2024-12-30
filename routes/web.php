@@ -60,10 +60,10 @@ Route::group(['prefix' => 'user'], function () {
 });
 Route::controller(FrontController::class)->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::get('category', 'category');
+    Route::get('category/{slug}', 'category');
 });
 Route::controller(ProductController::class)->group(function () {
-    Route::get('product', 'index');
+    Route::get('product/{slug}', 'index');
     Route::get('product_details/{id}', 'showServiceDetails');
 });
 Route::controller(ContactController::class)->group(function () {
