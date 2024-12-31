@@ -80,7 +80,6 @@
         </div>
     </section>
     <!-- ======================== Breadcrumb Two Section End ===================== -->
-
     <!-- ======================= Product Details Section Start ==================== -->
     <div class="product-details mt-32 padding-b-120">
         <div class="container container-two">
@@ -125,8 +124,8 @@
                                                             class="fas fa-star"></i></span>
                                                 </span>
                                                 <span class="star-rating__text text-body"> 5.0</span>
-                                                <span class="star-rating__text text-body"> (<span> 29 </span>
-                                                    تقـــــيم)</span>
+                                                <span class="star-rating__text text-body"> <span> </span>
+                                                    التقيمــات </span>
                                             </span>
                                         </button>
                                     </li>
@@ -140,10 +139,12 @@
                                         class="form-select-product-details">
                                         @csrf
                                         <div class="col-sm-12 col-xs-12 mb-3">
+                                            <input required type="hidden" name="main_service" value="{{ $service['service_id'] }}">
+                                            <input type="hidden" required name="provider_id" value="{{ $service->provider_id }}">
                                             <label for="Stateee" class="form-label mb-2 font-18 font-heading fw-600"> حدد
                                                 الخدمة </label>
                                             <div class="select-has-icon">
-                                                <select class="common-input border" id="Stateee">
+                                                <select class="common-input border" id="Stateee" name="sub_service_id">
                                                     <option value="" selected disabled> حدد الخدمة </option>
                                                     @foreach ($service['SubServices'] as $subservice)
                                                         <option value="{{ $subservice['provider_service_id'] }}">
@@ -165,7 +166,7 @@
                                             <label for="follower_num" class="form-label mb-2 font-18 font-heading fw-600">
                                                 العدد المطلوب
                                             </label>
-                                            <input type="number" min="{{ $service_from_provider->min }}"
+                                            <input type="number" required min="{{ $service_from_provider->min }}"
                                                 max="{{ $service_from_provider->max }}" name="followers_num"
                                                 class="common-input" id="follower_num" placeholder="ادخل العدد المطلوب">
                                             <div class="min_max_quantity">
@@ -179,7 +180,7 @@
                                         <div class="col-sm-12 col-xs-12 mb-3">
                                             <label for="account_link" class="form-label mb-2 font-18 font-heading fw-600">
                                                 الرابط </label>
-                                            <input type="text" name="account_link"
+                                            <input required type="url" name="account_link"
                                                 class="common-input common-input--grayBg border" id="account_link"
                                                 placeholder="  ضع رابط الحساب هنا  ">
                                         </div>
@@ -194,6 +195,8 @@
                                                         id="final_price">{{ $service_from_provider->final_price }}</span>
                                                     <span> $ </span>
                                                 </h4>
+                                                <input type="hidden" id="hidden_final_price" name="final_price" value="">
+
                                             </div>
                                         </div>
                                         <div class="service_advantages">
@@ -289,9 +292,11 @@
                                                         document.getElementById('max_quantity').textContent = data.max;
                                                         document.getElementById('total_price_for_min').textContent = `${data.final_price} $`;
                                                         document.getElementById('final_price').textContent = data.final_price;
+                                                        document.getElementById('hidden_final_price').value = data.final_price;
                                                         const followerInput = document.getElementById('follower_num');
                                                         const minQuantityElement = document.getElementById('min_quantity');
                                                         const finalPriceElement = document.getElementById('final_price');
+                                                        const hiddenFinalPrice = document.getElementById('hidden_final_price');
                                                         // تحديث القيم بناءً على الخدمة الفرعية
                                                         const minQuantity = parseInt(data.min);
                                                         const totalPriceForMin = parseFloat(data.final_price);
@@ -304,8 +309,10 @@
                                                                     3); // حساب السعر النهائي بناءً على الخدمة الأساسية أو الفرعية
                                                                 finalPriceElement.innerText =
                                                                     `${totalPrice} $`; // تحديث السعر في الصفحة
+                                                                    hiddenFinalPrice.value = totalPrice;
                                                             } else {
                                                                 finalPriceElement.innerText = "0"; // في حال الإدخال أقل من الحد الأدنى
+                                                                hiddenFinalPrice.value = "0";
                                                             }
                                                         });
                                                     })
@@ -318,6 +325,7 @@
                                             const finalPriceElement = document.getElementById('final_price');
                                             const totalPriceForMinElement = document.getElementById('total_price_for_min');
                                             const minQuantityElement = document.getElementById('min_quantity');
+                                            const hiddenFinalPrice = document.getElementById('hidden_final_price'); //
                                             let unitPrice = parseFloat(totalPriceForMinElement.innerText) / parseInt(minQuantityElement
                                                 .innerText); // الحساب الأولي لسعر الوحدة من الخدمة الأساسية
                                             // عند تغيير العدد المدخل، تحديث السعر النهائي
@@ -328,8 +336,10 @@
                                                     const totalPrice = (quantity * unitPrice).toFixed(
                                                         3); // حساب السعر النهائي بناءً على الخدمة الأساسية أو الفرعية
                                                     finalPriceElement.innerText = `${totalPrice} $`; // تحديث السعر في الصفحة
+                                                    hiddenFinalPrice.value = totalPrice;
                                                 } else {
                                                     finalPriceElement.innerText = "0"; // في حال الإدخال أقل من الحد الأدنى
+                                                    hiddenFinalPrice.value = "0";
                                                 }
                                             });
                                         });

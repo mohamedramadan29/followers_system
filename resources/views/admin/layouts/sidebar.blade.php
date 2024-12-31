@@ -43,10 +43,30 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link menu-arrow" href="#sidebarorders" data-bs-toggle="collapse" role="button"
+                    aria-expanded="false" aria-controls="sidebarorders">
+                    <span class="nav-icon">
+                       <i class="fa fa-shopping-bag"></i>
+                    </span>
+                    <span class="nav-text"> الطلبات  </span>
+                </a>
+                <div class="collapse" id="sidebarorders">
+                    <ul class="nav sub-navbar-nav">
+
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{ url('admin/orders') }}">  جميع الطلبات  </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+
+
+            <li class="nav-item">
                 <a class="nav-link menu-arrow" href="#sidebarProviders" data-bs-toggle="collapse" role="button"
                     aria-expanded="false" aria-controls="sidebarProviders">
                     <span class="nav-icon">
-                        <iconify-icon icon="solar:t-shirt-bold-duotone"></iconify-icon>
+                        <iconify-icon icon="solar:case-round-bold-duotone"></iconify-icon>
                     </span>
                     <span class="nav-text"> مزودي الخدمات  </span>
                 </a>
@@ -236,22 +256,7 @@
             </li>
 
 
-            <li class="nav-item">
-                <a class="nav-link menu-arrow" href="#sidebarbanners" data-bs-toggle="collapse" role="button"
-                    aria-expanded="false" aria-controls="sidebarbanners">
-                    <span class="nav-icon">
-                        <iconify-icon icon="solar:case-round-bold-duotone"></iconify-icon>
-                    </span>
-                    <span class="nav-text"> البانرات الرئيسية </span>
-                </a>
-                <div class="collapse" id="sidebarbanners">
-                    <ul class="nav sub-navbar-nav">
-                        <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{ url('admin/banners') }}">التفاصيل </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+
 
         </ul>
     </div>

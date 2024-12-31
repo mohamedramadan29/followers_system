@@ -1,19 +1,20 @@
 <?php
 
-use App\Http\Controllers\front\OrdersController;
-use App\Http\Controllers\front\BlogController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\front\BlogController;
 use App\Http\Controllers\front\FrontController;
 use App\Http\Controllers\front\TermsController;
+use App\Http\Controllers\front\OrdersController;
 use App\Http\Controllers\front\TicketController;
 use App\Http\Controllers\front\ContactController;
 use App\Http\Controllers\front\ProductController;
 use App\Http\Controllers\front\Auth\LoginController;
+use App\Http\Controllers\front\UserBalanceController;
 use App\Http\Controllers\front\User\ProfileController;
 use App\Http\Controllers\front\Auth\RegisterController;
 use App\Http\Controllers\front\TicketMessageController;
+use App\Http\Controllers\front\User\UserOrdersController;
 use App\Http\Controllers\front\Auth\SocialLoginController;
-use App\Http\Controllers\front\UserBalanceController;
 
 Route::controller(LoginController::class)->group(function () {
 
@@ -26,7 +27,6 @@ Route::controller(LoginController::class)->group(function () {
     Route::match(['post', 'get'], 'user/change-forget-password/{code}', 'change_forget_password');
     Route::post('user/update_forget_password', 'update_forget_password');
 });
-
 
 Route::controller(RegisterController::class)->group(function () {
 
@@ -41,7 +41,6 @@ Route::group(['prefix' => 'user'], function () {
         Route::get('setting', 'setting');
         Route::post('update_setting', 'UpdateSetting')->name('update_setting');
         Route::post('update_password', 'UpdatePassword')->name('update_password');
-        Route::get('orders', 'orders');
         Route::get('alerts', 'alerts');
         Route::get('balance', 'balance');
     });
@@ -57,6 +56,9 @@ Route::group(['prefix' => 'user'], function () {
     Route::controller(TicketMessageController::class)->group(function () {
         Route::get('ticket/{id}', 'index');
         Route::post('message/create/{ticket_id}', 'store');
+    });
+    Route::controller(UserOrdersController::class)->group(function () {
+        Route::get('orders', 'index');
     });
 });
 Route::controller(FrontController::class)->group(function () {

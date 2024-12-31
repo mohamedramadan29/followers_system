@@ -41,32 +41,24 @@
                     </div>
                 </div>
                 <ul class="nav tab-bordered nav-pills mt-4" id="pills-tabbs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-orders-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-orders" type="button" role="tab" aria-controls="pills-orders"
-                            aria-selected="true"> طلباتي <span class="notification">20</span></button>
+                        <a href="{{ url('user/orders') }}" class="nav-link"> طلباتي </a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-portfolio-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-portfolio" type="button" role="tab" aria-controls="pills-portfolio"
-                            aria-selected="false"> الرصيد </button>
+                        <a href="{{ url('user/balance') }}" class="nav-link"> الرصيد </a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-support-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-support" type="button" role="tab" aria-controls="pills-support"
-                            aria-selected="false"> تذاكر الدعم <span class="notification">2</span> </button>
+                        <a href="{{ url('user/tickets') }}" class="nav-link"> تذاكر الدعم <span
+                                class="notification">2</span> </a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a href="{{ url('user/setting') }}" class="nav-link" id="pills-Followingg-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-Followingg" type="button" role="tab"
-                            aria-controls="pills-Followingg" aria-selected="false"> الاعدادات <span
-                                class="notification">22</span> </a>
+                        <a href="{{ url('user/setting') }}" class="nav-link active"> الاعدادات </a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-Settingss-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-Settingss" type="button" role="tab" aria-controls="pills-Settingss"
-                            aria-selected="false"> التنبيهات </button>
+                        <a href="{{ url('user/alerts') }}" class="nav-link active"> التنبيهات </a>
                     </li>
+
                 </ul>
             </div>
         </div>

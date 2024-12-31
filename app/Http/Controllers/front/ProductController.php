@@ -33,18 +33,21 @@ class ProductController extends Controller
             return collect($services)->firstWhere('service', $service_id);
         });
         if ($service_from_provider) {
+            // dd($service_from_provider);
             // سعر الخدمة الأساسي
             $rate = $service_from_provider->rate; // السعر لكل وحدة
+            $rate_for_one = $rate / 1000;
             $min = $service_from_provider->min;   // الحد الأدنى
             // حساب التكلفة الإجمالية للحد الأدنى
-            $base_price = $rate * $min;
+            $base_price = $rate_for_one * $min;
+            //   dd($min);
             // نسبة الربح
             $profit_percentage = $service->profit_percentage; // يمكنك تغييرها حسب احتياجك
             // إضافة نسبة الربح
             $final_price = $base_price + ($base_price * $profit_percentage / 100);
             // تحويل البيانات إلى العرض
-            $service_from_provider->base_price = round($base_price, 2);
-            $service_from_provider->final_price = round($final_price, 2);
+            $service_from_provider->base_price = $base_price;
+            $service_from_provider->final_price = $final_price;
         } else {
             abort(404);
         }

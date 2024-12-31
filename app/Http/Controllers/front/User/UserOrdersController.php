@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\front\User;
 
-use App\Services\Api;
+use App\Http\Controllers\Controller;
+use App\Http\Traits\Message_Trait;
+use App\Models\admin\Provider;
 use App\Models\front\Order;
 use Illuminate\Http\Request;
-use App\Http\Traits\Message_Trait;
-use App\Http\Controllers\Controller;
-
-class OrdersController extends Controller
+use Illuminate\Support\Facades\Auth;
+use App\Services\Api;
+class UserOrdersController extends Controller
 {
     use Message_Trait;
 
@@ -16,6 +17,7 @@ class OrdersController extends Controller
     {
         // استرجاع الطلبات مع بيانات المزود
         $orders = Order::with('provider') // تحميل المزود مع الطلبات
+            ->where('user_id', Auth::id())
             ->orderBy('id', 'desc')
             ->get();
 
@@ -34,9 +36,11 @@ class OrdersController extends Controller
             } catch (\Exception $e) {
                 $order->provider_details = null; // في حالة حدوث خطأ
             }
+
             return $order;
+            
         });
 
-        return view('admin.orders.index', compact('orders_with_status'));
+        return view('front.users.orders.orders', compact('orders_with_status'));
     }
 }

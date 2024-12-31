@@ -28,6 +28,25 @@ class Api
         );
     }
 
+    ///////////////////////// Add Order ////////////////////////
+    public function order($data)
+    {
+        $post = array_merge(['key' => $this->api_key, 'action' => 'add'], $data);
+        return json_decode($this->connect($post));
+    }
+
+    ######################### Order Status ###################
+    public function status($order_id)
+    {
+        return json_decode(
+            $this->connect([
+                'key' => $this->api_key,
+                'action' => 'status',
+                'order' => $order_id
+            ])
+        );
+    }
+
     /** Connect to API */
     private function connect($data)
     {
@@ -47,10 +66,3 @@ class Api
         return $response;
     }
 }
-
-// // استدعاء الكلاس واستخدامه في مكان آخر
-// $api = new Api();
-
-// // جلب الخدمات
-// $services = $api->services(); // Return all services
-// //dd($services);

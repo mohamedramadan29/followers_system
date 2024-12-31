@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\OrdersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\FaqController;
 use \App\Http\Controllers\admin\BlogController;
@@ -117,6 +118,13 @@ Route::group(['prefix' => 'admin'], function () {
             Route::post('provider/delete/{id}', 'delete');
         });
         ########################### End Providers ############################
+
+        ########################## Start Orders #######################
+
+        Route::controller(OrdersController::class)->group(function () {
+            Route::get('orders', 'index');
+        });
+        ########################### End Orders #######################
     });
 
 });

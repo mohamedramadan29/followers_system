@@ -42,17 +42,16 @@
 
                                 <div class="sales">
                                     <span class="sales__text mb-1 text-heading fw-500">الرصيد الحالي </span>
-                                    <h5 class="sales__amount mb-0"> {{ number_format(Auth::user()->balance,2) }} دولار </h5>
+                                    <h5 class="sales__amount mb-0"> {{ number_format(Auth::user()->balance, 2) }} دولار </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <ul class="nav tab-bordered nav-pills mt-4" id="pills-tabbs" role="tablist">
+
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-orders-tab" data-bs-toggle="pill" data-bs-target="#pills-orders"
-                            type="button" role="tab" aria-controls="pills-orders" aria-selected="true"> طلباتي <span
-                                class="notification">20</span></button>
+                        <a href="{{ url('user/orders') }}" class="nav-link"> طلباتي </a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a href="{{ url('user/balance') }}" class="nav-link"> الرصيد </a>
@@ -65,10 +64,9 @@
                         <a href="{{ url('user/setting') }}" class="nav-link"> الاعدادات </a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-Settingss-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-Settingss" type="button" role="tab" aria-controls="pills-Settingss"
-                            aria-selected="false"> التنبيهات </button>
+                        <a href="{{ url('user/alerts') }}" class="nav-link"> التنبيهات </a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -99,7 +97,7 @@
                                             <a href="{{ url('user/ticket/' . $ticket['id']) }}">
                                                 <div class="ticket">
                                                     <div class="ticket_logo">
-                                                      <i class="bi bi-ticket"></i>
+                                                        <i class="bi bi-ticket"></i>
                                                     </div>
                                                     <div>
                                                         <h4> {{ $ticket['title'] }} </h4>

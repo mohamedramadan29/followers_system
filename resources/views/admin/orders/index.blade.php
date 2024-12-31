@@ -37,57 +37,74 @@
                             <div class="table-responsive">
                                 <table id="table-search" class="table table-bordered gridjs-table align-middle mb-0 table-hover table-centered">
                                     <thead class="bg-light-subtle">
-                                    <tr>
-                                        <th>  رقم الطلب   </th>
-                                        <th>  اسم العميل  </th>
-                                        <th>  رقم الهاتف   </th>
-                                        <th>  المدينة   </th>
-                                        <th> قيمة الشحن   </th>
-                                        <th>  الاجمالي   </th>
-                                        <th> حالة الطلب  </th>
-                                        <th>   العمليات</th>
-                                    </tr>
+                                        <tr>
+                                            <th> رقم الطلب </th>
+                                            <th>تاريخ الطلب </th>
+                                            <th> الكمية </th>
+                                            <th>اسم الخدمة </th>
+                                            <th>السعر </th>
+                                            <th> عدد البدا </th>
+                                            <th> العدد المتبقي </th>
+                                            <th>حالة الطلب </th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($orders as $order)
+                                        @foreach ($orders_with_status as $order)
                                         <tr>
-                                            <td>
-                                                {{$order['id']}}
+                                            <td data-label="Order ID"># {{ $order['order_number'] }} </td>
+                                            <td data-label="Date"> {{ $order['created_at'] }} </td>
+                                            <td data-label="Date"> {{ $order['quantity'] }} </td>
+                                            <td data-label="Type"> {{ $order['name'] }} </td>
+                                            <td data-label="Price"> {{ $order['total_price'] }} $ </td>
+                                            <td data-label="Date">
+                                                {{ $order->provider_details->start_count }} </td>
+                                            <td data-label="Date"> {{ $order->provider_details->remains }}
                                             </td>
-                                            <td>   {{$order['name']}} </td>
-                                            <td> {{$order['phone']}} </td>
-                                            <td> {{$order['city']['city']}} </td>
-                                            <td> {{$order['shipping_price']}} </td>
-                                            <td> {{$order['grand_total']}} </td>
-                                            <td>
-                                                @if($order['order_status'] == 'لم يبدا')
-                                                    <span class="badge badge-info bg-warning"> {{$order['order_status']}} </span>
-                                                @elseif($order['order_status'] == 'بداية التنفيذ')
-                                                    <span class="badge badge-info bg-info"> {{$order['order_status']}} </span>
-                                                @elseif($order['order_status'] == 'مكتمل')
-                                                    <span class="badge badge-info bg-success"> {{$order['order_status']}} </span>
-                                                @elseif($order['order_status'] == 'ملغي')
-                                                    <span class="badge badge-info bg-danger"> {{$order['order_status']}} </span>
-                                                @endif
-                                                 </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <a href="{{url('admin/order/update/'.$order['id'])}}" class="btn btn-soft-primary btn-sm">
-                                                        <iconify-icon icon="solar:pen-2-broken"
-                                                                      class="align-middle fs-18"></iconify-icon>
-                                                    </a>
-                                                    <a href="{{url('admin/order/print/'.$order['id'])}}" class="btn btn-soft-primary btn-sm">
-                                                        <i class='bx bxs-printer'></i>
-                                                    </a>
-                                                    <button type="button" class="btn btn-soft-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete_category_{{$order['id']}}">
-                                                        <iconify-icon icon="solar:trash-bin-minimalistic-2-broken"
-                                                                      class="align-middle fs-18"></iconify-icon>
-                                                    </button>
-                                                </div>
+                                            @php
+                                                // مصفوفة الحالات والألوان
+                                                $statuses = [
+                                                    'Partial' => [
+                                                        'text' => 'مكتمل جزئياً',
+                                                        'class' => 'bg-warning',
+                                                    ], // اللون الأصفر
+                                                    'Completed' => [
+                                                        'text' => 'مكتمل',
+                                                        'class' => 'bg-success',
+                                                    ], // اللون الأخضر
+                                                    'Pending' => [
+                                                        'text' => 'قيد التنفيذ',
+                                                        'class' => 'bg-primary',
+                                                    ], // اللون الأزرق
+                                                    'Processing' => [
+                                                        'text' => 'جاري المعالجة',
+                                                        'class' => 'bg-info',
+                                                    ], // اللون السماوي
+                                                    'Canceled' => [
+                                                        'text' => 'ملغي',
+                                                        'class' => 'bg-danger',
+                                                    ], // اللون الأحمر
+                                                    'Refunded' => [
+                                                        'text' => 'تم الاسترداد',
+                                                        'class' => 'bg-dark',
+                                                    ], // اللون الرمادي الداكن
+                                                ];
+
+                                                // الحالة الحالية
+                                                $current_status =
+                                                    $order->provider_details->status ?? 'Unknown';
+                                                $status_details = $statuses[$current_status] ?? [
+                                                    'text' => 'غير معروف',
+                                                    'class' => 'bg-secondary',
+                                                ]; // لون رمادي فاتح للحالة غير المعروفة
+                                            @endphp
+
+                                            <td data-label="status">
+                                                <span class="badge {{ $status_details['class'] }}">
+                                                    {{ $status_details['text'] }}
+                                                </span>
                                             </td>
+
                                         </tr>
-                                        <!-- Modal -->
-                                        @include('admin.orders.delete')
                                     @endforeach
                                     </tbody>
                                 </table>

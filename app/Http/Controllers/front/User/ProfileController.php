@@ -25,6 +25,10 @@ class ProfileController extends Controller
     {
         return view('front.users.setting');
     }
+    
+    public function orders(){
+        return view('front.users.orders');
+    }
 
     public function UpdateSetting(Request $request)
     {
@@ -108,6 +112,7 @@ class ProfileController extends Controller
         }
         return view('website.users.change-password');
     }
+
 
 
 }

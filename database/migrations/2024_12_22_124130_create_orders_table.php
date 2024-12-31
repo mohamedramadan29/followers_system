@@ -16,18 +16,13 @@ return new class extends Migration
             $table->string('order_number')->unique();
             $table->integer('user_id');
             $table->integer('provider_id');
-            $table->integer('service_id');
+            $table->integer( 'main_service_id');
+            $table->integer('sub_service_id')->nullable();
             $table->double('quantity');
             $table->string('page_link');
             $table->double('provider_main_price');
             $table->double('profit_percentage');
             $table->double('total_price');
-            //////////////////////////////////////////////
-            $table->foreignId('transaction_id');
-            $table->string('payment_method')->nullable();
-            $table->string('payment_status')->nullable();
-            $table->string('payment_order_id')->nullable();
-            $table->string('payment_order_number')->nullable();
             $table->tinyInteger('order_status');
             $table->timestamps();
         });
