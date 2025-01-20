@@ -46,15 +46,15 @@
                 <a class="nav-link menu-arrow" href="#sidebarorders" data-bs-toggle="collapse" role="button"
                     aria-expanded="false" aria-controls="sidebarorders">
                     <span class="nav-icon">
-                       <i class="fa fa-shopping-bag"></i>
+                        <i class="fa fa-shopping-bag"></i>
                     </span>
-                    <span class="nav-text"> الطلبات  </span>
+                    <span class="nav-text"> الطلبات </span>
                 </a>
                 <div class="collapse" id="sidebarorders">
                     <ul class="nav sub-navbar-nav">
 
                         <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{ url('admin/orders') }}">  جميع الطلبات  </a>
+                            <a class="sub-nav-link" href="{{ url('admin/orders') }}"> جميع الطلبات </a>
                         </li>
 
                     </ul>
@@ -68,16 +68,16 @@
                     <span class="nav-icon">
                         <iconify-icon icon="solar:case-round-bold-duotone"></iconify-icon>
                     </span>
-                    <span class="nav-text"> مزودي الخدمات  </span>
+                    <span class="nav-text"> مزودي الخدمات </span>
                 </a>
                 <div class="collapse" id="sidebarProviders">
                     <ul class="nav sub-navbar-nav">
 
                         <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{ url('admin/providers') }}">  مزودي الخدمات  </a>
+                            <a class="sub-nav-link" href="{{ url('admin/providers') }}"> مزودي الخدمات </a>
                         </li>
                         <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{ url('admin/provider/add') }}">  اضافة مزود جديد   </a>
+                            <a class="sub-nav-link" href="{{ url('admin/provider/add') }}"> اضافة مزود جديد </a>
                         </li>
                     </ul>
                 </div>
@@ -116,11 +116,31 @@
                 <div class="collapse" id="sidebarCategory">
                     <ul class="nav sub-navbar-nav">
                         <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{ url('admin/main-categories') }}"> التصنيفات الرئيسية </a>
+                            <a class="sub-nav-link" href="{{ url('admin/main-categories') }}"> التصنيفات الرئيسية
+                            </a>
                         </li>
                     </ul>
                 </div>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link menu-arrow" href="#sidebarCustomers" data-bs-toggle="collapse" role="button"
+                    aria-expanded="false" aria-controls="sidebarCustomers">
+                    <span class="nav-icon">
+                        <iconify-icon icon="solar:users-group-two-rounded-bold-duotone"></iconify-icon>
+                    </span>
+                    <span class="nav-text"> المستخدمين </span>
+                </a>
+                <div class="collapse" id="sidebarCustomers">
+                    <ul class="nav sub-navbar-nav">
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{ url('admin/users') }}"> جميع المستخدمين </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
 
             <li class="nav-item">
                 <a class="nav-link menu-arrow" href="#sidebarfaqs" data-bs-toggle="collapse" role="button"
@@ -169,18 +189,20 @@
                     <span class="nav-icon">
                         <i class="bi bi-car-front-fill"></i>
                     </span>
-                    <span class="nav-text">  سياسات الموقع  </span>
+                    <span class="nav-text"> سياسات الموقع </span>
                 </a>
                 <div class="collapse" id="sidebarterms">
                     <ul class="nav sub-navbar-nav">
                         <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{ url('admin/terms') }}">  الشروط والاحكام </a>
+                            <a class="sub-nav-link" href="{{ url('admin/terms') }}"> الشروط والاحكام </a>
                         </li>
                         <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{ url('admin/return-policy') }}">  سياسة الاستبدال و الاسترجاع </a>
+                            <a class="sub-nav-link" href="{{ url('admin/return-policy') }}"> سياسة الاستبدال و
+                                الاسترجاع </a>
                         </li>
                         <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{ url('admin/privacy-policy') }}"> سياسة الاستخدام والخصوصية </a>
+                            <a class="sub-nav-link" href="{{ url('admin/privacy-policy') }}"> سياسة الاستخدام
+                                والخصوصية </a>
                         </li>
 
                     </ul>
@@ -229,27 +251,6 @@
                         <li class="sub-nav-item">
                             <a class="sub-nav-link" href="{{ url('admin/update_admin_password') }}"> تعديل كلمة
                                 المرور </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link menu-arrow" href="#sidebarCustomers" data-bs-toggle="collapse" role="button"
-                    aria-expanded="false" aria-controls="sidebarCustomers">
-                    <span class="nav-icon">
-                        <iconify-icon icon="solar:users-group-two-rounded-bold-duotone"></iconify-icon>
-                    </span>
-                    <span class="nav-text"> العملاء </span>
-                </a>
-                <div class="collapse" id="sidebarCustomers">
-                    <ul class="nav sub-navbar-nav">
-
-                        <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="customer-list.html"> جميع العملاء </a>
-                        </li>
-                        <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="customer-detail.html">Details</a>
                         </li>
                     </ul>
                 </div>

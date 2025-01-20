@@ -49,6 +49,14 @@
                             </div>
                         </div>
                         <div class="col-12">
+                            {!! NoCaptcha::display() !!}
+                            @if ($errors->has('g-recaptcha-response'))
+                                <span class="help-block">
+                                    <strong class="text-danger">{{ $errors->first('g-recaptcha-response') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="col-12">
                             <button type="submit" class="btn btn-main btn-lg w-100 pill">  تسجــيل دخول </button>
                         </div>
                         <div class="col-12">

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone')->unique()->nullable();
             $table->string('image')->nullable();
             $table->text('person_info')->nullable();
-            $table->double('balance',8,2)->nullable();
+            $table->double('balance',8,2)->default(0);
             $table->double('balance_spent',8,2)->nullable();
             $table->double('order_balance_now',8,2)->nullable();
             $table->tinyInteger('account_status')->default(0);

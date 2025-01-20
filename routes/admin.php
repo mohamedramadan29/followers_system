@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\admin\OrdersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\FaqController;
 use \App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\TermsController;
+use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\admin\OrdersController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ProviderController;
@@ -120,11 +121,19 @@ Route::group(['prefix' => 'admin'], function () {
         ########################### End Providers ############################
 
         ########################## Start Orders #######################
-
         Route::controller(OrdersController::class)->group(function () {
             Route::get('orders', 'index');
         });
         ########################### End Orders #######################
+
+        ######################### Start Users Controllers ###########
+        Route::controller(UsersController::class)->group(function () {
+            Route::get('users', 'index');
+            Route::get('user/show/{id}', 'show');
+            Route::post('user/addbalance/{id}', 'AddBalance');
+            Route::post('user/deletebalance/{id}', 'DeleteBalance');
+        });
+        ####################### End User Controllers ##################
     });
 
 });

@@ -21,8 +21,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-
-
     ];
 
     /**
@@ -44,4 +42,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getAccountStatusAttribute($account_status){
+        if($account_status == 1){
+            return 'مفعل';
+        }else{
+            return 'غير مفعل';
+        }
+    }
 }

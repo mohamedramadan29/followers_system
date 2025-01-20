@@ -102,6 +102,10 @@ Route::controller(OrdersController::class)->group(function () {
 
 ########################## End Make Order ################
 
+##################### Start Social Media Controller ############
+
+#################### End Social Media Controller ################
+
 Route::get('auth/{provider}/redirect', action: [SocialLoginController::class, 'redirect'])->name('auth.google.redirect');
 Route::get('auth/{provider}/callback', [SocialLoginController::class, 'callback'])->name('auth.google.callback');
 
