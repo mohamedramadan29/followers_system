@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Middleware\admin;
+use App\Models\admin\admin;
+use Illuminate\Http\Request;
 use App\Http\Traits\Message_Trait;
 use App\Models\admin\PublicSetting;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;

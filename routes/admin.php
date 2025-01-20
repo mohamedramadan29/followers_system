@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\ProviderController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\MainCategoryController;
 use \App\Http\Controllers\admin\BlogCategoryController;
+use App\Http\Controllers\admin\EmployeeController;
 use App\Http\Controllers\admin\PublicSettingController;
 
 Route::group(['prefix' => 'admin'], function () {
@@ -127,6 +128,7 @@ Route::group(['prefix' => 'admin'], function () {
         ########################### End Orders #######################
 
         ######################### Start Users Controllers ###########
+
         Route::controller(UsersController::class)->group(function () {
             Route::get('users', 'index');
             Route::get('user/show/{id}', 'show');
@@ -134,6 +136,15 @@ Route::group(['prefix' => 'admin'], function () {
             Route::post('user/deletebalance/{id}', 'DeleteBalance');
         });
         ####################### End User Controllers ##################
+
+        ########################## Start Employeers Controllers #######################
+        Route::controller(EmployeeController::class)->group(function () {
+           Route::get('employees','index');
+           Route::match(['post', 'get'], 'employee/add', 'store');
+           Route::match(['post', 'get'], 'employee/update/{id}', 'update');
+           Route::post('employee/delete/{id}', 'delete');
+        });
+        ############################ End Employeers Controlles ####################
     });
 
 });

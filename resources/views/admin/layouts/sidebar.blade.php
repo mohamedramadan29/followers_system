@@ -122,7 +122,23 @@
                     </ul>
                 </div>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link menu-arrow" href="#sidebarPermissions" data-bs-toggle="collapse" role="button"
+                    aria-expanded="false" aria-controls="sidebarPermissions">
+                    <span class="nav-icon">
+                        <iconify-icon icon="solar:clipboard-list-bold-duotone"></iconify-icon>
+                    </span>
+                    <span class="nav-text"> الصلاحيات  </span>
+                </a>
+                <div class="collapse" id="sidebarPermissions">
+                    <ul class="nav sub-navbar-nav">
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{ url('admin/roles') }}">  جميع الصلاحيات
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link menu-arrow" href="#sidebarCustomers" data-bs-toggle="collapse" role="button"
                     aria-expanded="false" aria-controls="sidebarCustomers">
@@ -139,9 +155,22 @@
                     </ul>
                 </div>
             </li>
-
-
-
+            <li class="nav-item">
+                <a class="nav-link menu-arrow" href="#sidebarEmployess" data-bs-toggle="collapse" role="button"
+                    aria-expanded="false" aria-controls="sidebarEmployess">
+                    <span class="nav-icon">
+                        <iconify-icon icon="solar:users-group-two-rounded-bold-duotone"></iconify-icon>
+                    </span>
+                    <span class="nav-text"> الموظفين  </span>
+                </a>
+                <div class="collapse" id="sidebarEmployess">
+                    <ul class="nav sub-navbar-nav">
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{ url('admin/employees') }}"> جميع الموظفين </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link menu-arrow" href="#sidebarfaqs" data-bs-toggle="collapse" role="button"
                     aria-expanded="false" aria-controls="sidebarfaqs">

@@ -1,26 +1,23 @@
 <?php
 
 namespace App\Providers;
-
+use App\Policies\PostPolicy;
 // use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-
+use App\Models\admin\admin;
 class AuthServiceProvider extends ServiceProvider
 {
-    /**
-     * The model to policy mappings for the application.
-     *
-     * @var array<class-string, class-string>
-     */
     protected $policies = [
         //
     ];
 
-    /**
-     * Register any authentication / authorization services.
-     */
     public function boot(): void
     {
-        //
+        foreach (config('permissions') as $config_permission => $value) {
+            Gate::define($config_permission, function ($auth) use ($config_permission) {
+                return $auth->hasAccess($config_permission);
+            });
+        }
     }
 }
