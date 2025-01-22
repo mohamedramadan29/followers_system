@@ -60,8 +60,6 @@
                     </ul>
                 </div>
             </li>
-
-
             <li class="nav-item">
                 <a class="nav-link menu-arrow" href="#sidebarProviders" data-bs-toggle="collapse" role="button"
                     aria-expanded="false" aria-controls="sidebarProviders">
@@ -72,7 +70,6 @@
                 </a>
                 <div class="collapse" id="sidebarProviders">
                     <ul class="nav sub-navbar-nav">
-
                         <li class="sub-nav-item">
                             <a class="sub-nav-link" href="{{ url('admin/providers') }}"> مزودي الخدمات </a>
                         </li>
@@ -128,12 +125,12 @@
                     <span class="nav-icon">
                         <iconify-icon icon="solar:clipboard-list-bold-duotone"></iconify-icon>
                     </span>
-                    <span class="nav-text"> الصلاحيات  </span>
+                    <span class="nav-text"> الصلاحيات </span>
                 </a>
                 <div class="collapse" id="sidebarPermissions">
                     <ul class="nav sub-navbar-nav">
                         <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{ url('admin/roles') }}">  جميع الصلاحيات
+                            <a class="sub-nav-link" href="{{ url('admin/roles') }}"> جميع الصلاحيات
                             </a>
                         </li>
                     </ul>
@@ -161,7 +158,7 @@
                     <span class="nav-icon">
                         <iconify-icon icon="solar:users-group-two-rounded-bold-duotone"></iconify-icon>
                     </span>
-                    <span class="nav-text"> الموظفين  </span>
+                    <span class="nav-text"> الموظفين </span>
                 </a>
                 <div class="collapse" id="sidebarEmployess">
                     <ul class="nav sub-navbar-nav">

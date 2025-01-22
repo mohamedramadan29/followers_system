@@ -5,7 +5,7 @@ use App\Policies\PostPolicy;
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use App\Models\admin\admin;
+use App\Models\admin\Admin;
 class AuthServiceProvider extends ServiceProvider
 {
     protected $policies = [

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\FaqController;
+use App\Http\Controllers\admin\RoleController;
 use \App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\TermsController;
@@ -9,11 +10,11 @@ use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\admin\OrdersController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\EmployeeController;
 use App\Http\Controllers\admin\ProviderController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\MainCategoryController;
 use \App\Http\Controllers\admin\BlogCategoryController;
-use App\Http\Controllers\admin\EmployeeController;
 use App\Http\Controllers\admin\PublicSettingController;
 
 Route::group(['prefix' => 'admin'], function () {
@@ -145,6 +146,14 @@ Route::group(['prefix' => 'admin'], function () {
            Route::post('employee/delete/{id}', 'delete');
         });
         ############################ End Employeers Controlles ####################
+        ############################# Start Roles #########################
+        Route::controller(RoleController::class)->group(function () {
+            Route::get('roles', 'index');
+            Route::match(['post', 'get'], 'role/add', 'store');
+            Route::match(['post', 'get'], 'role/update/{id}', 'update');
+            Route::post('role/delete/{id}', 'destroy');
+        });
+        ############################# End Roles ############################
     });
 
 });

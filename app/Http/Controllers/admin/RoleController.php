@@ -14,9 +14,9 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        return view('dashboard.roles.index', compact('roles'));
+        return view('admin.roles.index', compact('roles'));
     }
-    public function create(Request $request)
+    public function store(Request $request)
     {
         if ($request->isMethod('post')) {
             $data = $request->all();
@@ -34,12 +34,12 @@ class RoleController extends Controller
             }
             $role = new Role();
             $role->role = $data['role'];
-            $role->permission = json_encode($data['permissions']);
+            $role->permissions = json_encode($data['permissions']);
             $role->save();
 
             return $this->success_message(' تم اضافة الصلاحية بنجاح');
         }
-        return view('dashboard.roles.create');
+        return view('admin.roles.create');
     }
 
     public function update(Request $request, $id)
@@ -60,12 +60,12 @@ class RoleController extends Controller
             }
             $role = Role::find($id);
             $role->role = $data['role'];
-            $role->permission = json_encode($data['permissions']);
+            $role->permissions = json_encode($data['permissions']);
             $role->save();
             return $this->success_message(' تم تعديل الصلاحية بنجاح');
         }
         $role = Role::find($id);
-        return view('dashboard.roles.edit', compact('role'));
+        return view('admin.roles.update', compact('role'));
     }
 
     public function destroy($id)

@@ -71,8 +71,8 @@
                                                     href="{{ url('admin/employee/update/' . $admin->id) }}"><i
                                                         class="la la-edit"></i> تعديل </a>
                                                 <button type="button" class="btn btn-danger btn-sm"
-                                                    data-toggle="modal"
-                                                    data-target="#delete_admin_{{ $admin->id }}">
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#delete_admin_{{ $admin->id }}">
                                                     حذف <i class="la la-trash"></i>
                                                 </button>
                                             </td>

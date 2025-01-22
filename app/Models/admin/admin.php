@@ -8,28 +8,43 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class admin extends Authenticatable
+class Admin extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
-    protected $fillable = ['name', 'email', 'phone', 'password', 'account_type', 'status','role_id'];
+    protected $fillable = ['name', 'email', 'phone', 'password', 'account_type', 'status', 'role_id'];
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
     public function Role()
     {
         return $this->belongsTo(Role::class, 'role_id');
     }
+
+
+
     public function hasAccess($config_permission)
     {
+        dd('تم استدعاء الدالة'); // تحقق من استدعاء الدالة
         $role = $this->Role;
-        dd($role);
+        dump($role); // تصحيح: تحقق من الدور
         if (!$role) {
             return false;
         }
-       // dd($role, json_decode($role->permissions, true), $config_permission);
         $permissions = json_decode($role->permissions);
+        dump($permissions); // تصحيح: تحقق من الأذونات
         foreach ($permissions as $permission) {
             if ($permission == $config_permission ?? false) {
                 return true;
             }
         }
+        return false;
     }
 }
