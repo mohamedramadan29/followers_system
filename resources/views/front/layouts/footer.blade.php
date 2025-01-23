@@ -1,7 +1,16 @@
+<div class="last_news_section">
+    <button class="news_button" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+        aria-controls="offcanvasExample">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+    </button>
+</div>
+
+@include('front.layouts.last_news_section')
+
 <!-- ==================== Footer Start Here ==================== -->
 @php
-use App\Models\admin\PublicSetting;
-$setting = PublicSetting::first();
+    use App\Models\admin\PublicSetting;
+    $setting = PublicSetting::first();
 @endphp
 
 <footer class="footer-section ">
@@ -29,18 +38,20 @@ $setting = PublicSetting::first();
                 <div class="footer-widget">
                     <h5 class="footer-widget__title text-white"> روابط </h5>
                     <ul class="footer-lists">
-                        <li class="footer-lists__item"><a href="{{ url('/') }}" class="footer-lists__link"> الرئيسية
+                        <li class="footer-lists__item"><a href="{{ url('/') }}" class="footer-lists__link">
+                                الرئيسية
                             </a></li>
                         <li class="footer-lists__item"><a href="product-details.html" class="footer-lists__link">
                                 الاقسام </a></li>
                         <li class="footer-lists__item"><a href="profile.html" class="footer-lists__link"> الخدمات </a>
                         </li>
-                        <li class="footer-lists__item"><a href="{{ url('contact') }}" class="footer-lists__link">تواصل معنا
+                        <li class="footer-lists__item"><a href="{{ url('contact') }}" class="footer-lists__link">تواصل
+                                معنا
                             </a>
                         </li>
-                        <li class="footer-lists__item"><a href="{{ url('blog') }}" class="footer-lists__link"> المدونة 
-                        </a>
-                    </li>
+                        <li class="footer-lists__item"><a href="{{ url('blog') }}" class="footer-lists__link"> المدونة
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -51,57 +62,50 @@ $setting = PublicSetting::first();
                         <ul class="social-icon-list">
                             @if ($setting['facebook'] != '')
                                 <li class="social-icon-list__item">
-                                    <a href="{{ $setting['facebook'] }}"
-                                        class="social-icon-list__link  flx-center"><i
+                                    <a href="{{ $setting['facebook'] }}" class="social-icon-list__link  flx-center"><i
                                             class="fab fa-facebook-f"></i></a>
                                 </li>
                             @endif
 
                             @if ($setting['twitter'] != '')
                                 <li class="social-icon-list__item">
-                                    <a href="{{ $setting['twitter'] }}"
-                                        class="social-icon-list__link  flx-center"> <i
+                                    <a href="{{ $setting['twitter'] }}" class="social-icon-list__link  flx-center"> <i
                                             class="fab fa-twitter"></i></a>
                                 </li>
                             @endif
 
                             @if ($setting['linkedin'] != '')
                                 <li class="social-icon-list__item">
-                                    <a href="{{ $setting['linkedin'] }}"
-                                        class="social-icon-list__link  flx-center"> <i
+                                    <a href="{{ $setting['linkedin'] }}" class="social-icon-list__link  flx-center"> <i
                                             class="fab fa-linkedin-in"></i></a>
                                 </li>
                             @endif
 
                             @if ($setting['pinterest'] != '')
                                 <li class="social-icon-list__item">
-                                    <a href="{{ $setting['pinterest'] }}"
-                                        class="social-icon-list__link  flx-center"> <i
-                                            class="fab fa-pinterest-p"></i></a>
+                                    <a href="{{ $setting['pinterest'] }}" class="social-icon-list__link  flx-center">
+                                        <i class="fab fa-pinterest-p"></i></a>
                                 </li>
                             @endif
 
                             @if ($setting['youtube'] != '')
                                 <li class="social-icon-list__item">
-                                    <a href="{{ $setting['youtube'] }}"
-                                        class="social-icon-list__link  flx-center"> <i
+                                    <a href="{{ $setting['youtube'] }}" class="social-icon-list__link  flx-center"> <i
                                             class="fab fa-youtube"></i></a>
                                 </li>
                             @endif
 
                             @if ($setting['instagram'] != '')
                                 <li class="social-icon-list__item">
-                                    <a href="{{ $setting['instagram'] }}"
-                                        class="social-icon-list__link flx-center"> <i
-                                            class="fab fa-instagram"></i></a>
+                                    <a href="{{ $setting['instagram'] }}" class="social-icon-list__link flx-center">
+                                        <i class="fab fa-instagram"></i></a>
                                 </li>
                             @endif
 
                             @if ($setting['whatsapp'] != '')
                                 <li class="social-icon-list__item">
-                                    <a href="{{ $setting['whatsapp'] }}"
-                                        class="social-icon-list__link flx-center"> <i
-                                            class="fab fa-whatsapp"></i></a>
+                                    <a href="{{ $setting['whatsapp'] }}" class="social-icon-list__link flx-center">
+                                        <i class="fab fa-whatsapp"></i></a>
                                 </li>
                             @endif
 

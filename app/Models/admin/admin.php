@@ -27,9 +27,7 @@ class Admin extends Authenticatable
     {
         return $this->belongsTo(Role::class, 'role_id');
     }
-
-
-
+    
     public function hasAccess($config_permission)
     {
         dd('تم استدعاء الدالة'); // تحقق من استدعاء الدالة

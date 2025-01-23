@@ -189,6 +189,26 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link menu-arrow" href="#sidebarlastnews" data-bs-toggle="collapse" role="button"
+                    aria-expanded="false" aria-controls="sidebarlastnews">
+                    <span class="nav-icon">
+                        <iconify-icon icon="solar:question-circle-bold-duotone"></iconify-icon>
+                    </span>
+                    <span class="nav-text"> احدث الاخبار </span>
+                </a>
+                <div class="collapse" id="sidebarlastnews">
+                    <ul class="nav sub-navbar-nav">
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{ url('admin/news') }}"> احدث الاخبار </a>
+                        </li>
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{ url('admin/news/add') }}"> اضافة خبر جديد </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link menu-arrow" href="#sidebaradvs" data-bs-toggle="collapse" role="button"
                     aria-expanded="false" aria-controls="sidebarBrands">
                     <span class="nav-icon">

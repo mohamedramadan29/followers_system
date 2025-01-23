@@ -11021,3 +11021,74 @@ border-bottom: 0;
 .add_balance .charge_info li i{
     color: #025789;
 }
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.news_button {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: #025789;
+    color: #fff;
+    z-index: 99999;
+    width: 45px;
+    height: 45px;
+    line-height: 50px;
+    border-radius: 100%;
+    animation: pulse 1.5s ease-in-out infinite; /* تأثير النبض */
+}
+.news_button i{
+    font-size: 20px;
+}
+
+
+.offcanvas .offcanvas-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.news-container {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.news-item {
+    margin-bottom: 20px;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #888;
+    display: block;
+}
+
+.news-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.news-content {
+    font-size: 14px;
+    color: #333;
+}
+
+.news-note {
+    font-size: 13px;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.news-item .image{
+    max-width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

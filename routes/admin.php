@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\OrdersController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\EmployeeController;
+use App\Http\Controllers\admin\LastNewsController;
 use App\Http\Controllers\admin\ProviderController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\MainCategoryController;
@@ -154,6 +155,17 @@ Route::group(['prefix' => 'admin'], function () {
             Route::post('role/delete/{id}', 'destroy');
         });
         ############################# End Roles ############################
+
+        ############################ Start Last News ####################
+
+        Route::controller(LastNewsController::class)->group(function () {
+            Route::get('news','index');
+            Route::match(['post', 'get'], 'news/add', 'store');
+            Route::match(['post', 'get'], 'news/update/{id}', 'update');
+            Route::post('news/delete/{id}', 'delete');
+        });
+
+        ############################ End Last News ######################
     });
 
 });
