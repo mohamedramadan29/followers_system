@@ -35,7 +35,7 @@ Route::controller(RegisterController::class)->group(function () {
     Route::get('user/confirm/{code}', 'UserConfirm');
 });
 
-Route::group(['prefix' => 'user'], function () {
+Route::group(['prefix' => 'user','middleware' => 'auth'], function () {
     Route::controller(ProfileController::class)->group(function () {
         Route::get('profile', 'index')->name('profile');
         Route::get('setting', 'setting');
@@ -47,6 +47,12 @@ Route::group(['prefix' => 'user'], function () {
     Route::controller(UserBalanceController::class)->group(function () {
         Route::get('balance', 'index');
         Route::post('balance/store', 'store')->name('store_balance');
+        Route::post('/payment/callback', 'handleCallback')->name('crepto.payment.callback');
+        Route::get('/payment/success', 'paymentSuccess')->name('payment.success');
+        Route::get('/payment/cancel', 'paymentCancel')->name('payment.cancel');
+        Route::get('/paypal/success', 'paypalSuccess')->name('paypal.success');
+        Route::get('/paypal/cancel', 'paypalCancel')->name('paypal.cancel');
+
     });
     Route::controller(TicketController::class)->group(function () {
         Route::get('tickets', 'tickets')->name('tickets');
@@ -58,7 +64,7 @@ Route::group(['prefix' => 'user'], function () {
         Route::post('message/create/{ticket_id}', 'store');
     });
     Route::controller(UserOrdersController::class)->group(function () {
-        Route::get('orders', 'index');
+        Route::get('orders', 'index')->name('orders');
     });
 });
 Route::controller(FrontController::class)->group(function () {

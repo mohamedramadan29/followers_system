@@ -19,7 +19,7 @@ class LoginController extends Controller
     public function show_login()
     {
         if (Auth::user()) {
-            return Redirect()->route('profile');
+            return Redirect()->route('orders');
         }
         return view("front.login");
 
@@ -31,12 +31,15 @@ class LoginController extends Controller
                 $data = $request->all();
                 $rules = [
                     'email' => 'required|email',
-                    'password' => 'required'
+                    'password' => 'required',
+                    'g-recaptcha-response' => ['required', 'captcha']
                 ];
                 $messages = [
                     'email.required' => 'من فضلك ادخل البريد الالكتروني',
                     'email.email' => 'من فضلك ادخل بريد الكتروني صحيح',
                     'password.required' => 'من فضلك ادخل كلمة المرور',
+                    'g-recaptcha-response.required' => 'من فضلك قم بتأكيد أنك لست روبوتًا',
+                    'g-recaptcha-response.captcha' => 'فشل التحقق من reCAPTCHA، يرجى المحاولة مرة أخرى'
                 ];
                 $validator = Validator::make($data, $rules, $messages);
 
@@ -49,7 +52,7 @@ class LoginController extends Controller
                         Auth::logout();
                         return Redirect()->back()->withInput()->withErrors(['من فضلك يجب تفعيل الحساب الخاص بك أولاً']);
                     }
-                    return Redirect()->route('profile');
+                    return Redirect()->route('orders');
                     //return response()->json(['redirect' => url('user/dashboard')]);
                 } else {
                     return Redirect()->back()->withInput()->withErrors(['لا يوجد حساب بهذه البيانات']);
@@ -63,7 +66,7 @@ class LoginController extends Controller
 
         return view('front.login');
         if (Auth::check()) {
-            return redirect()->route('profile');
+            return redirect()->route('orders');
         }
 
         //  return view('website.login');

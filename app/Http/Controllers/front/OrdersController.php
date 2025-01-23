@@ -6,13 +6,16 @@ use App\Services\Api;
 use App\Models\front\User;
 use App\Models\front\Order;
 use Illuminate\Http\Request;
+use App\Models\admin\Product;
 use App\Models\admin\Provider;
+use App\Models\admin\SubService;
 use App\Http\Traits\Message_Trait;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+
 class OrdersController extends Controller
 {
     use Message_Trait;
@@ -20,6 +23,12 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        // dd($data);
+        $service = Product::where('id', $data['website_serv_id'])->first();
+        $profit_percentage = $service->profit_percentage;
+        ############# SubService
+        $subservice = SubService::where('provider_service_id', $data['sub_service_id'])->where('product_id', $data['website_serv_id'])->first();
+        $subservice_name = $subservice->name;
         $rules = [
             'provider_id' => 'required',
             'main_service' => 'required',
@@ -54,14 +63,12 @@ class OrdersController extends Controller
         try {
             ######################################### إرسال الطلب للمزود #########################################
             $api = new Api($provider->api_url, $provider->api_key);
-
             // إعداد بيانات الطلب
             $orderData = [
-                'service' => $data['main_service'],
+                'service' => $data['sub_service_id'],
                 'link' => $data['account_link'],
                 'quantity' => $data['followers_num'],
             ];
-
             // إرسال الطلب والحصول على الاستجابة
             $provider_response = $api->order($orderData);
             $provider_order_id = $provider_response->order ?? null;
@@ -75,10 +82,11 @@ class OrdersController extends Controller
             $order->provider_id = $data['provider_id'];
             $order->main_service_id = $data['main_service'];
             $order->sub_service_id = $data['sub_service_id'] ?? null;
+            $order->name = $subservice_name;
             $order->quantity = $data['followers_num'];
             $order->page_link = $data['account_link'];
-            $order->provider_main_price = 10; // يمكنك التعديل حسب الحاجة
-            $order->profit_percentage = 10; // يمكنك التعديل حسب الحاجة
+            $order->provider_main_price = $data['final_price'];
+            $order->profit_percentage = $profit_percentage;
             $order->total_price = $data['final_price'];
             $order->order_status = 1; // يمكنك تحديد الحالة المناسبة
             $order->save();

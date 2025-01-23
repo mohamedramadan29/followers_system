@@ -139,12 +139,16 @@
                                         class="form-select-product-details">
                                         @csrf
                                         <div class="col-sm-12 col-xs-12 mb-3">
-                                            <input required type="hidden" name="main_service" value="{{ $service['service_id'] }}">
-                                            <input type="hidden" required name="provider_id" value="{{ $service->provider_id }}">
+                                            <input type="hidden" name="website_serv_id" value="{{ $service['id'] }}">
+                                            <input required type="hidden" name="main_service"
+                                                value="{{ $service['service_id'] }}">
+                                            <input type="hidden" required name="provider_id"
+                                                value="{{ $service->provider_id }}">
                                             <label for="Stateee" class="form-label mb-2 font-18 font-heading fw-600"> حدد
                                                 الخدمة </label>
                                             <div class="select-has-icon">
-                                                <select class="common-input border" id="Stateee" name="sub_service_id">
+                                                <select required class="common-input border" id="Stateee"
+                                                    name="sub_service_id">
                                                     <option value="" selected disabled> حدد الخدمة </option>
                                                     @foreach ($service['SubServices'] as $subservice)
                                                         <option value="{{ $subservice['provider_service_id'] }}">
@@ -156,7 +160,8 @@
                                         <div class="col-sm-12 col-xs-12 mb-3">
                                             <div class="service_price">
                                                 <p> السعر لكل <span
-                                                        id="min_quantity">{{ $service_from_provider->min }}</span></p>
+                                                        id="min_quantity">{{ $service_from_provider->min }}</span>
+                                                </p>
                                                 <h6 id="total_price_for_min">{{ $service_from_provider->final_price }} $
                                                 </h6>
                                             </div>
@@ -195,7 +200,8 @@
                                                         id="final_price">{{ $service_from_provider->final_price }}</span>
                                                     <span> $ </span>
                                                 </h4>
-                                                <input type="hidden" id="hidden_final_price" name="final_price" value="">
+                                                <input type="hidden" id="hidden_final_price" name="final_price"
+                                                    value="">
 
                                             </div>
                                         </div>
@@ -309,7 +315,7 @@
                                                                     3); // حساب السعر النهائي بناءً على الخدمة الأساسية أو الفرعية
                                                                 finalPriceElement.innerText =
                                                                     `${totalPrice} $`; // تحديث السعر في الصفحة
-                                                                    hiddenFinalPrice.value = totalPrice;
+                                                                hiddenFinalPrice.value = totalPrice;
                                                             } else {
                                                                 finalPriceElement.innerText = "0"; // في حال الإدخال أقل من الحد الأدنى
                                                                 hiddenFinalPrice.value = "0";

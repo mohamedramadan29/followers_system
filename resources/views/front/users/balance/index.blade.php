@@ -189,9 +189,8 @@
                                     </div>
                                     <ul class="statement-list">
                                         <li class="statement-list__item text-center">
-
                                             <h6 class="statement-list__amount mb-0 mt-1 fw-600">
-                                                $50.00
+                                                {{ number_format(Auth::user()->balance,2) }} دولار
                                             </h6>
                                         </li>
 

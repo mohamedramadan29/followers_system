@@ -42,7 +42,7 @@
 
                                 <div class="sales">
                                     <span class="sales__text mb-1 text-heading fw-500">الرصيد الحالي </span>
-                                    <h5 class="sales__amount mb-0">15,830 ر.س</h5>
+                                    <h5 class="sales__amount mb-0"> {{ number_format(Auth::user()->balance, 2) }} دولار </h5>
                                 </div>
                             </div>
                         </div>

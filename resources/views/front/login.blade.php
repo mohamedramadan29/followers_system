@@ -22,7 +22,7 @@
                         <div class="col-12">
                             <label for="email" class="form-label mb-2 font-18 font-heading fw-600"> البريد الالكتروني  </label>
                             <div class="position-relative">
-                                <input required name="email" required type="email" class="common-input common-input--bg common-input--withIcon"
+                                <input required name="email" required type="email" value="{{ old('email') }}" class="common-input common-input--bg common-input--withIcon"
                                     id="email" placeholder=" اكتــب البريد الالكترونــــى ">
                                 <span class="input-icon"><img
                                         src="{{ asset('assets/front/') }}/images/icons/envelope-icon.svg"

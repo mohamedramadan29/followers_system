@@ -15,6 +15,7 @@ class UserOrdersController extends Controller
 
     public function index()
     {
+        
         // استرجاع الطلبات مع بيانات المزود
         $orders = Order::with('provider') // تحميل المزود مع الطلبات
             ->where('user_id', Auth::id())
@@ -38,7 +39,7 @@ class UserOrdersController extends Controller
             }
 
             return $order;
-            
+
         });
 
         return view('front.users.orders.orders', compact('orders_with_status'));

@@ -86,7 +86,8 @@
                         </li>
                         @foreach ($maincategories as $category)
                             <li class="nav-menu__item">
-                                <a href="{{ url('category/'.$category['slug']) }}" class="nav-menu__link"> {{ $category['name'] }} </a>
+                                <a href="{{ url('category/' . $category['slug']) }}" class="nav-menu__link">
+                                    {{ $category['name'] }} </a>
                             </li>
                         @endforeach
                         <li class="nav-menu__item">
@@ -109,8 +110,13 @@
                         <div class="user-profile ">
                             <button class="user-profile__button flex-align">
                                 <span class="user-profile__thumb">
-                                    <img src="{{ asset('assets/front/') }}/images/thumbs/user-profile.png"
-                                        class="cover-img" alt="">
+                                    @if (Auth::user()->image != '')
+                                        <img src="{{ asset('assets/uploads/Users/' . Auth::user()->image) }}"
+                                            alt="">
+                                    @else
+                                        <img src="{{ asset('assets/uploads/Users/user_avatar.png') }}"
+                                            class="cover-img" alt="">
+                                    @endif
                                 </span>
                             </button>
                             <ul class="user-profile-dropdown">
