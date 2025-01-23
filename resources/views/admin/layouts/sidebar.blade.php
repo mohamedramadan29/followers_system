@@ -209,6 +209,27 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link menu-arrow" href="#sidebarchatboot" data-bs-toggle="collapse" role="button"
+                    aria-expanded="false" aria-controls="sidebarchatboot">
+                    <span class="nav-icon">
+                        <iconify-icon icon="solar:question-circle-bold-duotone"></iconify-icon>
+                    </span>
+                    <span class="nav-text"> اسئلة وتدريب البوت  </span>
+                </a>
+                <div class="collapse" id="sidebarchatboot">
+                    <ul class="nav sub-navbar-nav">
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{ url('admin/bootfaqs') }}"> الاسئلة </a>
+                        </li>
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{ url('admin/bootfaqs/add') }}">  اضافة سوال  </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+            <li class="nav-item">
                 <a class="nav-link menu-arrow" href="#sidebaradvs" data-bs-toggle="collapse" role="button"
                     aria-expanded="false" aria-controls="sidebarBrands">
                     <span class="nav-icon">

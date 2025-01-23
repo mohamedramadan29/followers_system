@@ -16,6 +16,7 @@ use App\Http\Controllers\admin\ProviderController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\MainCategoryController;
 use \App\Http\Controllers\admin\BlogCategoryController;
+use App\Http\Controllers\admin\BootFaqController;
 use App\Http\Controllers\admin\PublicSettingController;
 
 Route::group(['prefix' => 'admin'], function () {
@@ -166,6 +167,15 @@ Route::group(['prefix' => 'admin'], function () {
         });
 
         ############################ End Last News ######################
+
+        ############################ Start Chat Boot ##################
+        Route::controller(BootFaqController::class)->group(function () {
+            Route::get('bootfaqs','index');
+            Route::match(['post', 'get'], 'bootfaq/add', 'store');
+            Route::match(['post', 'get'], 'bootfaq/update/{id}', 'update');
+            Route::post('bootfaq/delete/{id}', 'delete');
+        });
+        ############################ End Chart Boot ####################
     });
 
 });
